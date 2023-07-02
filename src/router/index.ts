@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "@/features/home/views/HomeView.vue";
+import HomeView from "@features/home/views/HomeView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "@/features/about/views/AboutView.vue"
+        /* webpackChunkName: "about" */ "@features/about/views/AboutView.vue"
       ),
   },
 ];

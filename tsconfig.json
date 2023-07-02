@@ -20,8 +20,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
+    // import paths
     "paths": {
-      "@/*": ["src/*"]
+      "@*": ["src/*"]
     }
   },
 
