@@ -19,20 +19,24 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ---
 
-## 1. create project using vite
+# create project using vite
 
 ```bash
 $ npm create vite@latest project-name
 ```
 
-## 2. install tailwindcss
+---
+
+# tailwindcss
+
+**_[tailwindcss](https://tailwindcss.com/)_**
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-### 2-1. setting in tailwind.config.js
+### setting in tailwind.config.js
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
@@ -45,7 +49,7 @@ export default {
 };
 ```
 
-### 2-2. setting in style.css
+### setting in style.css
 
 ```css
 @tailwind base;
@@ -53,28 +57,32 @@ export default {
 @tailwind utilities;
 ```
 
-## 3. install vue-router
+---
 
-[vue Router](https://router.vuejs.org/)
+# vue-router
+
+**_[vue Router](https://router.vuejs.org/)_**
 
 ```bash
 npm install vue-router@4
 ```
 
-### 3-2. create file 'index.ts' in './src/routes'
+### create file 'index.ts' in './src/routes'
 
 create route
 
-### 3-1. setting at main.ts
+### setting at main.ts
 
 ```typescript
 import router from "./router/index";
 createApp(App).use(router).mount("#app");
 ```
 
-## 4. path
+---
 
-### 4-1. tsconfig.json
+# config path
+
+### tsconfig.json
 
 ```json
 "compilerOptions": {
@@ -85,7 +93,7 @@ createApp(App).use(router).mount("#app");
   },
 ```
 
-### 4-2. vite.config.ts
+### vite.config.ts
 
 ```typescript
 export default defineConfig({
@@ -98,7 +106,11 @@ export default defineConfig({
 });
 ```
 
-> [ERROR] cannot find name 'process'.
+---
+
+# ERROR
+
+### cannot find name 'process'.
 
 ```bash
 npm i --save-dev @types/node
