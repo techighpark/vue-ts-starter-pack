@@ -19,6 +19,14 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ---
 
+# vue study
+
+- [ ] [Using Vue with TypeScript](https://vuejs.org/guide/typescript/overview.html)
+- [ ] [Using Custom Directives](https://vuejs.org/api/sfc-script-setup.html#using-custom-directives)
+- [ ] [Custom Directives](https://vuejs.org/guide/reusability/custom-directives.html)
+
+---
+
 # create project using vite
 
 ```bash
