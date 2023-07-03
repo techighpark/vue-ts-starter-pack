@@ -116,6 +116,22 @@ export default defineConfig({
 
 ---
 
+# node packages
+
+### heroicons
+
+```bash
+npm install @heroicons/vue
+```
+
+### headlessui
+
+```bash
+npm install @headlessui/vue
+```
+
+---
+
 # ERROR
 
 ### cannot find name 'process'.
