@@ -1,17 +1,23 @@
 <template>
   <div class="bg-white">
-    <header ref="headerRef" class="border border-indigo-600">
+    <!-- <header ref="headerRef" class="border border-indigo-600">
       <nav>nav</nav>
-    </header>
-    <body ref="bodyRef" class="border border-pink-500">
-      body
-      <section class="relative border-4 h-fit w-fit">
-        <img src="./assets/image1.jpg" alt="" />
-        <div class="absolute">VUE LAYOUT TEMPLATE</div>
-      </section>
-      <section>
-        <title class="z-50 bg-white">asdfsdf</title>
-        <img src="./assets/image2.jpg" alt="" />
+    </header> -->
+    <body ref="bodyRef" class="bg-pink-500">
+      <section class="relative">
+        <img
+          id="firstImage"
+          ref="firstImage"
+          class="absolute"
+          src="./assets/image1.jpg"
+          alt=""
+        />
+        <img
+          ref="secondImage"
+          class="absolute"
+          src="./assets/image2.jpg"
+          alt=""
+        />
       </section>
     </body>
     <footer></footer>
@@ -19,10 +25,32 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from "vue";
+import { Ref, onMounted, ref } from "vue";
 
-const headerRef: Ref<HTMLElement | null> = ref(null);
+// const headerRef: Ref<HTMLElement | null> = ref(null);
 const bodyRef: Ref<HTMLElement | null> = ref(null);
+const firstImage: Ref<HTMLElement | null> = ref(null);
+const secondImage: Ref<HTMLElement | null> = ref(null);
+
+onMounted(() => {
+  if (secondImage.value) {
+    secondImage.value.style.opacity = "1";
+  }
+});
+addEventListener("scroll", (_: Event) => {
+  const rect = document.body.getBoundingClientRect();
+  if (rect.top < -200) {
+    if (secondImage.value) {
+      secondImage.value.style.transition = "opacity 0.5s ease-in-out"; // transition 설정
+      secondImage.value.style.opacity = "0";
+    }
+  } else {
+    if (secondImage.value) {
+      secondImage.value.style.transition = "opacity 0.5s ease-in-out"; // transition 설정
+      secondImage.value.style.opacity = "1";
+    }
+  }
+});
 
 // const vFocus = {
 //   mounted: (el: HTMLElement): void => el.focus(),
