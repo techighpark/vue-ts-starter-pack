@@ -4,7 +4,7 @@
     <div
       class="first-observer-area relative py-20 px-20 flex justify-end bg-gray-100 transition-all duration-500"
     >
-      <div class="w-32 shrink-0 md:w-48 lg:w-72">
+      <div class="w-24 sm:w-40 md:w-56 lg:w-72">
         <img
           src="../../../assets/image1.png"
           alt=""
@@ -15,13 +15,11 @@
       <div
         class="absolute bottom-1/4 left-10 flex flex-col justify-center gap-y-6 transition-all duration-500"
       >
-        <p
-          class="flex text-black font-bold font-mono text-4xl md:text-6xl lg:text-7xl italic"
-        >
+        <p class="flex text-black font-bold font-mono text-7xl italic">
           Techigh Studio
         </p>
         <p
-          class="flex text-black font-normal font-mono text-lg md:text-2xl lg:text-3xl italic after:content-['&'] after:text-pink-500 after:text-5xl after:font-black"
+          class="flex text-black font-normal font-mono text-3xl italic after:content-['&'] after:text-pink-500 after:text-5xl after:font-black"
         >
           Front-end Developer
         </p>

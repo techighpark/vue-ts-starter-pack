@@ -8,8 +8,8 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/center",
+    name: "center",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -23,6 +23,9 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  // scrollBehavior(_, __, ___) {
+  //   return { top: 0, behavior: "smooth" };
+  // },
 });
 
 export default router;
