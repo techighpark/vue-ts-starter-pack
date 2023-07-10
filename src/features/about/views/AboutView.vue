@@ -9,31 +9,31 @@
       </p>
     </div>
     <div id="contents-container" class="h-[250vh] bg-black/0"></div>
-    <div class="bg-red-500">
-      <div class="h-96 mt-20 px-10 py-10 flex gap-x-4 bg-gray-100">
-        <div class="min-w-[5rem] rounded-lg bg-black overflow-hidden">
+    <div class="bg-black z-10">
+      <div class="px-20 py-10 flex flex-col items-center gap-y-20">
+        <div class="min-w-[5rem] bg-black overflow-hidden">
           <img
             src="@assets/example1.png"
             alt=""
-            class="h-full object-contain"
+            class="w-full object-contain"
           />
         </div>
-        <div class="min-w-[5rem] rounded-lg bg-black overflow-hidden">
+        <div class="min-w-[5rem] bg-black overflow-hidden">
           <img
             src="@assets/example2.png"
             alt=""
-            class="h-full object-contain"
+            class="w-full object-contain"
           />
         </div>
-        <div class="min-w-[5rem] rounded-lg bg-black overflow-hidden">
+        <div class="min-w-[5rem] bg-black overflow-hidden">
           <img
             src="@assets/example4.png"
             alt=""
-            class="h-full object-contain"
+            class="w-full object-contain"
           />
         </div>
-        <div class="min-w-[5rem] rounded-lg bg-black overflow-hidden">
-          <img src="@assets/image2.jpg" alt="" class="h-full object-contain" />
+        <div class="min-w-[5rem] bg-black overflow-hidden">
+          <img src="@assets/image2.jpg" alt="" class="w-full object-contain" />
         </div>
       </div>
     </div>
@@ -54,7 +54,12 @@ onMounted(() => {
     requestAnimationFrame(updateBackgroundColor);
   });
 });
-// Text Scale
+
+/* 
+|------------------------------------------------------------------------
+| Text Scale
+|------------------------------------------------------------------------
+*/
 let currentScale = 1;
 const minScale = 1;
 const maxScale = 50;
@@ -77,7 +82,11 @@ function updateScale() {
     }
   }
 }
-// Text Opacity
+/* 
+|------------------------------------------------------------------------
+| Text Opacity
+|------------------------------------------------------------------------
+*/
 let currentOpacity = 0.1;
 const minOpcaity = 0.1;
 const maxOpacity = 1;
@@ -99,8 +108,11 @@ function updateOpacity() {
     brandName.style.opacity = `${newOpacity}`;
   }
 }
-
-// Text Opacity
+/* 
+|------------------------------------------------------------------------
+| Background Opacity
+|------------------------------------------------------------------------
+*/
 let currentBgOpacity = 0;
 const minBgOpcaity = 0;
 const maxBgOpacity = 1;
