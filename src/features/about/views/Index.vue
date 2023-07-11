@@ -3,12 +3,12 @@
     <div id="sticky-container" class="sticky w-full">
       <p
         id="brand-name"
-        class="w-full h-full flex items-center justify-center uppercase font-bold text-black opacity-10 text-7xl origin-bottom"
+        class="w-full h-full flex items-start justify-center uppercase font-bold text-black opacity-10 text-7xl origin-bottom transition-all duration-300"
       >
         marvel fitness
       </p>
     </div>
-    <div class="h-[120vh]"></div>
+    <div class="h-[225vh]"></div>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Web -->
     <div class="z-10 py-10 flex flex-col items-center gap-y-20">
       <!-- first image: Web -->
@@ -129,17 +129,19 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-let brandName: HTMLElement | null;
-let contentsContainer: HTMLElement | null;
+import { onMounted, ref } from "vue";
 
+const viewHeight = ref(window.visualViewport?.height);
+const halfViewHeight = ref(window.visualViewport?.height! / 2);
 /*
 |--------------------------------------------------------------------------------------------------------------
 | First Area
 |--------------------------------------------------------------------------------------------------------------
 */
+let brandName: HTMLElement | null;
+let contentsContainer: HTMLElement | null;
 onMounted(() => {
-  const viewHeight = window.innerHeight / 2;
+  const viewHeight = window.visualViewport!.height / 2;
   const stickyContainer: HTMLElement | null =
     document.getElementById("sticky-container");
   if (stickyContainer !== null)
@@ -161,11 +163,14 @@ onMounted(() => {
 */
 let currentScale = 1;
 const minScale = 1;
-const maxScale = 40;
+const maxScale = 70;
 let scaleAnimation: number;
 function updateScale() {
-  const scrollY = window.scrollY - 500;
-  const newScale = Math.max(minScale, Math.min(maxScale, scrollY * 0.03));
+  const scrollY = window.scrollY - halfViewHeight.value;
+  const newScale = Math.max(
+    minScale,
+    Math.min(maxScale, (scrollY * maxScale) / viewHeight.value!)
+  );
 
   currentScale = newScale;
 
@@ -177,10 +182,10 @@ function updateScale() {
 
   if (brandName !== null) {
     brandName.style.transform = `matrix(${newScale},0,0,${newScale},0,0)`;
-    if (window.scrollY >= 850) {
-      brandName.style.display = `none`;
+    if (window.scrollY >= viewHeight.value! * 1.5) {
+      brandName.style.opacity = `0`;
     } else {
-      brandName.style.display = `flex`;
+      brandName.style.opacity = `1`;
     }
   }
 }
@@ -198,7 +203,7 @@ function updateOpacity() {
   const scrollY = window.scrollY;
   const newOpacity = Math.max(
     minOpcaity,
-    Math.min(maxOpacity, scrollY * 0.002)
+    Math.min(maxOpacity, scrollY / halfViewHeight.value)
   );
   currentOpacity = newOpacity;
 
@@ -222,10 +227,10 @@ const minBgOpcaity = 0;
 const maxBgOpacity = 1;
 let bgOpacityAnimation: number;
 function updateBackgroundColor() {
-  const scrollY = window.scrollY - 750;
+  const scrollY = window.scrollY - 1.5 * viewHeight.value!;
   const newBgOpacity = Math.max(
     minBgOpcaity,
-    Math.min(maxBgOpacity, scrollY * 0.01)
+    Math.min(maxBgOpacity, scrollY * 0.002)
   );
 
   if (currentBgOpacity === newBgOpacity) {

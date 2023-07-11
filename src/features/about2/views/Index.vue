@@ -1,36 +1,28 @@
 <template>
-  <div
-    class="h-screen border border-green-500 flex items-center justify-center"
-  >
+  <div id="page-container" class="h-screen flex items-center justify-center">
     <div
       class="dev-container"
       @mouseover="toggleAnimation"
       @mouseout="toggleAnimation"
     >
-      <div class="dev-box bg-orange-600">123</div>
-      <div class="dev-box bg-blue-600">123</div>
-      <div class="dev-box bg-green-600">123</div>
-      <div class="dev-box bg-black">123</div>
-      <div class="dev-box bg-orange-600">123</div>
-      <div class="dev-box bg-blue-600">123</div>
-      <div class="dev-box bg-green-600">123</div>
-      <div class="dev-box bg-black">123</div>
-      <div class="dev-box bg-orange-600">123</div>
-      <div class="dev-box bg-blue-600">123</div>
-      <div class="dev-box bg-green-600">123</div>
-      <div class="dev-box bg-black">123</div>
-      <div class="dev-box bg-orange-600">123</div>
-      <div class="dev-box bg-blue-600">123</div>
-      <div class="dev-box bg-green-600">123</div>
-      <div class="dev-box bg-black">123</div>
-      <div class="dev-box bg-orange-600">123</div>
-      <div class="dev-box bg-blue-600">123</div>
-      <div class="dev-box bg-green-600">123</div>
-      <div class="dev-box bg-black">123</div>
-      <div class="dev-box bg-orange-600">123</div>
-      <div class="dev-box bg-blue-600">123</div>
-      <div class="dev-box bg-green-600">123</div>
-      <div class="dev-box bg-black">123</div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
+      <div class="dev-box"><div class="dev-element"></div></div>
 
       <!-- <div class="dev-box m-auto w-40 h-40 bg-indigo-600"></div>
     <div class="dev-box m-auto w-40 h-40 bg-red-600"></div>
@@ -41,6 +33,8 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 function toggleAnimation() {
   const sliderItems = document.getElementsByClassName("dev-box");
   for (const animation of sliderItems) {
@@ -49,25 +43,71 @@ function toggleAnimation() {
       running === "running" ? "paused" : "running";
   }
 }
+let divElements;
+onMounted(() => {
+  divElements = document.querySelectorAll(".dev-box");
+  for (var i = 0; i < divElements.length; i++) {
+    divElements[i].addEventListener("mouseover", function (event) {
+      console.log((event.target as HTMLElement)!.matches(":hover"));
+      if ((event.target as HTMLElement)!.matches(":hover")) {
+        (event.target as HTMLElement)!.style.border = "2px solid red";
+      } else {
+        (event.target as HTMLElement)!.style.opacity = "2px solid blue";
+      }
+    });
+  }
+});
 </script>
 
 <style scoped>
+#page-container {
+  overflow-x: hidden;
+  overscroll-behavior-inline: contain;
+}
 .dev-container {
   width: 100%;
 
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 20rem;
-  overflow-x: auto;
+  grid-auto-columns: 25%;
+  gap: 6rem;
 
   overscroll-behavior-inline: contain;
 }
+
 .dev-box {
-  animation: 3s linear infinite running devKeyframes;
+  height: fit-content;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  border: 1px solid deeppink;
+  animation: 30s linear infinite running devKeyframes;
 }
-.dev-box:hover {
-  transform: scale(2);
+
+.dev-element {
+  width: 200px;
+  height: 300px;
+
+  position: absolute;
+  bottom: 0px;
+
+  background-color: black;
+  border-radius: 20px;
+
+  transition: transform 300ms ease-in-out;
+  transform-origin: bottom;
 }
+
+.dev-element:hover {
+  transform: scale(1.3);
+  /* backdrop-filter: blur(10px); */
+}
+/* .dev-element:not(:hover) {
+  transform: scale(0.8);
+} */
 
 @keyframes devKeyframes {
   from {
