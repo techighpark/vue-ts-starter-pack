@@ -10,4 +10,8 @@
 import Layout from "@components/apple-layouts/Layout.vue";
 </script>
 
-<style></style>
+<style>
+body {
+  background-color: white;
+}
+</style>

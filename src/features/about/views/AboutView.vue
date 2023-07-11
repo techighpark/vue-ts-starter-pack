@@ -9,83 +9,18 @@
       </p>
     </div>
     <div class="h-[120vh]"></div>
-    <div class="z-10">
-      <div class="px-20 py-10 flex flex-col items-center gap-y-20">
-        <!-- first image: Web -->
-        <div
-          id="first-container"
-          class="w-full hidden md:flex justify-between opacity-0 transition-all duration-1000"
-        >
-          <div id="first-image" class="">
-            <div
-              class="w-full md:max-w-xs lg:max-w-md xl:max-w-xl shrink-0 bg-black overflow-hidden"
-            >
-              <img
-                src="@assets/image2.jpg"
-                alt=""
-                class="w-full object-contain"
-              />
-            </div>
-          </div>
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Web -->
+    <div class="z-10 py-10 flex flex-col items-center gap-y-20">
+      <!-- first image: Web -->
+      <div
+        id="first-container"
+        class="w-full h-[60rem] px-20 hidden md:flex justify-between opacity-0 transition-all duration-[1500ms]"
+      >
+        <div id="first-image" class="">
           <div
-            id="first-text"
-            class="shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white text-right"
+            class="w-full md:max-w-xs lg:max-w-md xl:max-w-xl shrink-0 bg-black overflow-hidden"
           >
-            <div class="flex flex-col gap-y-4">
-              <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
-                첫번째 문구
-              </span>
-              <span class="md:text-base lg:text-lg xl:text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-                dicta.
-              </span>
-            </div>
-          </div>
-        </div>
-        <!-- second image: Web  -->
-        <div
-          id="second-container"
-          class="w-full hidden md:flex justify-between opacity-1 transition-all duration-1000"
-        >
-          <div
-            id="second-text"
-            class="shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white"
-          >
-            <div class="flex flex-col gap-y-4">
-              <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
-                두번째 문구
-              </span>
-              <span class="md:text-base lg:text-lg xl:text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-                dicta.
-              </span>
-            </div>
-          </div>
-          <div id="second-image" class="">
-            <div
-              class="w-full md:max-w-xs lg:max-w-md xl:max-w-xl shrink-0 bg-black overflow-hidden"
-            >
-              <img
-                src="@assets/image4.jpg"
-                alt=""
-                class="w-full object-contain"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- first image: Mobile -->
-        <div class="w-full flex md:hidden flex-col gap-y-20">
-          <div class="shrink-0 mt-40 text-white text-right">
-            <div class="flex flex-col gap-y-4">
-              <span class="font-bold text-4xl sm:text-6xl">첫번째 문구</span>
-              <span class="text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-                dicta.
-              </span>
-            </div>
-          </div>
-          <div class="w-full max-w-xl shrink-0 m-auto bg-black overflow-hidden">
             <img
               src="@assets/image2.jpg"
               alt=""
@@ -93,18 +28,104 @@
             />
           </div>
         </div>
-        <!-- second image: Web  -->
-        <div class="min-w-[5rem] bg-black overflow-hidden">
-          <img src="@assets/image4.jpg" alt="" class="w-full object-contain" />
+        <div
+          id="first-text"
+          class="shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white text-right"
+        >
+          <div class="flex flex-col gap-y-4">
+            <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
+              첫번째 문구
+            </span>
+            <span class="md:text-base lg:text-lg xl:text-xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+              dicta.
+            </span>
+          </div>
         </div>
-        <div class="min-w-[5rem] bg-black overflow-hidden">
-          <img src="@assets/image5.jpg" alt="" class="w-full object-contain" />
+      </div>
+
+      <!-- second image: Web  -->
+      <div
+        id="second-container"
+        class="relative w-full h-[60rem] hidden md:flex justify-between"
+      >
+        <div
+          id="second-text"
+          class="absolute -left-4 opacity-0 shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white transition-all duration-[1500ms]"
+        >
+          <div class="flex flex-col gap-y-4">
+            <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
+              두번째 문구
+            </span>
+            <span class="md:text-base lg:text-lg xl:text-xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+              dicta.
+            </span>
+          </div>
         </div>
-        <div class="min-w-[5rem] bg-black overflow-hidden">
-          <img src="@assets/image6.jpg" alt="" class="w-full object-contain" />
+        <div
+          id="second-image"
+          class="absolute -right-4 opacity-0 transition-all duration-[1500ms]"
+        >
+          <div
+            class="w-full md:max-w-xs lg:max-w-md xl:max-w-xl shrink-0 bg-black overflow-hidden"
+          >
+            <img
+              src="@assets/image4.jpg"
+              alt=""
+              class="w-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- third image: Web -->
+      <div
+        id="third-container"
+        class="relative w-full h-[90rem] hidden md:flex flex-col justify-start items-center"
+      >
+        <div
+          id="third-text"
+          class="shrink-0 mt-28 mb-16 text-white transition-all duration-[1500ms]"
+        >
+          <div class="flex flex-col gap-y-4">
+            <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
+              세번째 문구
+            </span>
+            <span class="md:text-base lg:text-lg xl:text-xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+              dicta.
+            </span>
+          </div>
+        </div>
+        <div id="third-image" class="transition-all duration-[1500ms]">
+          <div
+            class="w-full md:max-w-xl lg:max-w-3xl xl:max-w-5xl shrink-0 bg-black overflow-hidden"
+          >
+            <img
+              src="@assets/image5.jpg"
+              alt=""
+              class="w-full object-contain"
+            />
+          </div>
         </div>
       </div>
     </div>
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- first image: Mobile -->
+    <!-- <div class="w-full flex md:hidden flex-col gap-y-20">
+      <div class="shrink-0 mt-40 text-white text-right">
+        <div class="flex flex-col gap-y-4">
+          <span class="font-bold text-4xl sm:text-6xl">첫번째 문구</span>
+          <span class="text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, dicta.
+          </span>
+        </div>
+      </div>
+      <div class="w-full max-w-xl shrink-0 m-auto bg-black overflow-hidden">
+        <img src="@assets/image2.jpg" alt="" class="w-full object-contain" />
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -176,8 +197,10 @@ const maxOpacity = 1;
 let opacityAnimation: number;
 function updateOpacity() {
   const scrollY = window.scrollY;
-  const newOpacity = Math.max(minOpcaity, Math.min(maxOpacity, scrollY * 0.02));
-
+  const newOpacity = Math.max(
+    minOpcaity,
+    Math.min(maxOpacity, scrollY * 0.002)
+  );
   currentOpacity = newOpacity;
 
   if (currentOpacity === newOpacity) {
@@ -227,23 +250,18 @@ function updateBackgroundColor() {
 |------------------------------------------------------------------------
 */
 let firstContainer: HTMLElement | null;
-const firstOptions = { threshold: 0.5 };
-
 onMounted(() => {
   firstContainer = document.getElementById("first-container");
 
-  const firstObserver = new IntersectionObserver(
+  const firstOptions = { threshold: 0.7 };
+  new IntersectionObserver(
     (entries) => firstObserve(entries),
     firstOptions
-  );
-  if (firstContainer !== null) {
-    firstObserver.observe(firstContainer);
-  }
+  ).observe(firstContainer!);
 });
 
 function firstObserve(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
-    console.log(entry.isIntersecting);
     const element = entry.target as HTMLElement;
     if (entry.isIntersecting) {
       element.style.opacity = "1.0";
@@ -257,12 +275,36 @@ function firstObserve(entries: IntersectionObserverEntry[]) {
 | Second Image
 |------------------------------------------------------------------------
 */
+let secondContainer: HTMLElement | null;
 let secondImage: HTMLElement | null;
 let secondText: HTMLElement | null;
 onMounted(() => {
+  secondContainer = document.getElementById("second-container");
   secondImage = document.getElementById("second-image");
   secondText = document.getElementById("second-text");
+
+  const secondOptions = { threshold: 0.7 };
+  new IntersectionObserver(
+    (entries) => secondObserve(entries),
+    secondOptions
+  ).observe(secondContainer!);
 });
+
+function secondObserve(entries: IntersectionObserverEntry[]) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      secondText!.style.opacity = "1";
+      secondText!.style.left = "5rem";
+      secondImage!.style.opacity = "1";
+      secondImage!.style.right = "5rem";
+    } else {
+      secondText!.style.opacity = "0";
+      secondText!.style.left = "-1rem";
+      secondImage!.style.opacity = "0";
+      secondImage!.style.right = "-1rem";
+    }
+  });
+}
 </script>
 
 <style scoped></style>
