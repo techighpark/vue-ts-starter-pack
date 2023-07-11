@@ -1,16 +1,18 @@
 <template>
   <header class="w-full">
-    <!-- ----------------- navigation ----------------- -->
     <nav :class="isOpenedMenu ? 'fixed inset-0 z-10' : 'relative'">
-      <!-- Mobile Bar -->
+      <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Navigation Bar: Mobile -->
       <div class="md:hidden relative">
         <div class="w-full h-10 flex justify-between items-center">
+          <!-- Brand Logo or Title -->
           <div class="pl-4">
             <h1 class="font-bold text-lg uppercase">marvel fitness</h1>
           </div>
 
           <!-- Navigation - Close Button -->
+          <!-- TODO -->
           <MenumCloseButton @toggle="(value) => (isOpenedMenu = value)" />
+
           <!-- Mobile Navigation -->
           <div
             :class="isOpenedMenu ? 'h-[100vh]' : 'h-0'"
@@ -29,8 +31,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Web Navigation Bar -->
+      <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Navigation Bar: Web -->
       <ul class="hidden px-4 md:flex justify-between bg-white">
         <li class="flex items-center cursor-pointer" @click="routerTo('home')">
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
@@ -64,7 +65,7 @@ const routers = [
   },
   {
     label: "Trainer",
-    routeName: "center",
+    routeName: "trainer",
   },
   {
     label: "Machine",
