@@ -1,7 +1,7 @@
 <template>
   <div class="min-w-[20rem]">
     <Header />
-    <main>
+    <main class="absolute top-10 w-full h-full">
       <slot name="contents" />
     </main>
   </div>

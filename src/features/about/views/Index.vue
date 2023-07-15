@@ -3,7 +3,7 @@
     <div id="sticky-container" class="sticky w-full">
       <p
         id="brand-name"
-        class="w-full h-full flex items-start justify-center uppercase font-bold text-black opacity-10 text-7xl origin-bottom transition-all duration-300"
+        class="w-full h-full flex items-start justify-center uppercase font-bold text-black opacity-10 text-7xl origin-center transition-all duration-300"
       >
         marvel fitness
       </p>
@@ -163,7 +163,7 @@ onMounted(() => {
 */
 let currentScale = 1;
 const minScale = 1;
-const maxScale = 70;
+const maxScale = 60;
 let scaleAnimation: number;
 function updateScale() {
   const scrollY = window.scrollY - halfViewHeight.value;

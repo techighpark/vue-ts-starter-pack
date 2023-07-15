@@ -1,7 +1,7 @@
 <template>
   <h2 class="section-title">Individual elements</h2>
 
-  <div class="media-scroller snaps-inline">
+  <div class="media-scroller with-overscroll snaps-inline snaps--individual">
     <div class="media-element">
       <img
         src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
@@ -145,7 +145,9 @@
   </div>
 
   <h2 class="section-title">Groups elements</h2>
-  <div class="media-scroller media-scroller--with-groups snaps-inline">
+  <div
+    class="media-scroller with-overscroll media-scroller--with-groups snaps-inline"
+  >
     <!--   Group 1 -->
     <div class="media-group">
       <div class="media-element">
@@ -290,7 +292,6 @@
 .media-scroller {
   --_spacer: 1rem;
   --radius: 10%;
-
   display: grid;
   gap: var(--_spacer);
   grid-auto-flow: column;

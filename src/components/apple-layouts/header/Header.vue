@@ -1,6 +1,9 @@
 <template>
-  <header class="w-full">
-    <nav :class="isOpenedMenu ? 'fixed inset-0 z-10' : 'relative'">
+  <header
+    class="fixed z-10 bg-white/50 backdrop-blur-lg"
+    :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'"
+  >
+    <nav>
       <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Navigation Bar: Mobile -->
       <div class="md:hidden relative">
         <div class="w-full h-10 flex justify-between items-center">
@@ -15,8 +18,8 @@
 
           <!-- Mobile Navigation -->
           <div
-            :class="isOpenedMenu ? 'h-[100vh]' : 'h-0'"
-            class="mobile-nav absolute top-0 inset-x-0 overflow-hidden bg-white transition-all duration-500"
+            :class="isOpenedMenu ? 'h-[100vh] bg-white' : 'h-0'"
+            class="mobile-nav absolute top-0 inset-x-0 overflow-hidden transition-all duration-500"
           >
             <ul>
               <template v-for="item in routers">
@@ -32,7 +35,7 @@
         </div>
       </div>
       <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Navigation Bar: Web -->
-      <ul class="hidden px-4 md:flex justify-between bg-white">
+      <ul class="hidden px-4 md:flex justify-between">
         <li class="flex items-center cursor-pointer" @click="routerTo('home')">
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
         </li>
@@ -69,25 +72,22 @@ const routers = [
   },
   {
     label: "Machine",
-    routeName: "center",
+    routeName: "machine",
   },
 ];
 // router push
 const router = useRouter();
 function routerTo(value: string): void {
   router.push({ name: value });
+  isOpenedMenu.value = false;
 }
 </script>
 
 <style>
-ul {
-  background-color: white;
-}
-
 /* Navigation */
 /* Web */
 .web-nav-item {
-  @apply h-10 px-2 flex items-center bg-white leading-none text-xs text-gray-500 cursor-pointer;
+  @apply h-10 px-2 flex items-center  leading-none text-xs text-gray-800 cursor-pointer;
 }
 /* Mobile */
 body::-webkit-scrollbar {
@@ -109,7 +109,7 @@ body input[id="mobile-nav-btn"]:checked ~ body {
 }
 
 .mobile-nav-item {
-  @apply relative px-10 py-1 flex items-center justify-between text-3xl font-medium leading-relaxed cursor-pointer;
+  @apply relative px-10 py-1 flex items-center justify-between text-3xl font-medium leading-relaxed  cursor-pointer;
 }
 .mobile-nav-chevron {
   @apply absolute right-4 h-5 w-5 text-gray-500 opacity-0 transition-all;

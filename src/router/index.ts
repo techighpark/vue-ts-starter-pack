@@ -10,9 +10,6 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/center",
     name: "center",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(
         /* webpackChunkName: "center" */ "@features/about/views/Index.vue"
@@ -21,12 +18,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/trainer",
     name: "trainer",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(
         /* webpackChunkName: "trainer" */ "@features/about2/views/Index.vue"
+      ),
+  },
+  {
+    path: "/machine",
+    name: "machine",
+    component: () =>
+      import(
+        /* webpackChunkName: "machine" */ "@features/about3/views/Index.vue"
       ),
   },
 ];
