@@ -43,7 +43,7 @@
       class="first-observer-area relative opacity-0 transition-all duration-500"
     >
       <img
-        src="./assets/image6.jpg"
+        src="../../../assets/image6.jpg"
         alt=""
         class="aspect-square object-cover object-top"
       />

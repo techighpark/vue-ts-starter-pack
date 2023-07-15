@@ -70,6 +70,7 @@
               alt=""
               class="group-hover/item:scale-110 transition-transform duration-300"
             />
+            {{ item }}
             <!-- <div
               class="absolute bottom-0 left-0 group-hover/item:bottom-1/2 group-hover/item:left-1/2 group-hover/item:-translate-x-1/2 group-hover/item:-translate-y-1/2 transition-all duration-700"
             >
