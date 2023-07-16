@@ -9,6 +9,7 @@ on:
 
 jobs:
   github-action-test-job:
+    name: Github Action Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
