@@ -1,7 +1,12 @@
 <template>
   <div class="h-10 pr-4 flex items-center justify-end">
-    <input type="checkbox" id="mobile-nav-btn" class="hidden" />
-    <label for="mobile-nav-btn" @click="openMobileNavigation">
+    <input
+      v-model="localValue"
+      type="checkbox"
+      id="mobile-nav-btn"
+      class="hidden"
+    />
+    <label for="mobile-nav-btn">
       <span></span>
       <span></span>
     </label>
@@ -9,17 +14,16 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from "vue";
+import { computed } from "vue";
 
-// Mobile
-const isOpenedMenu: Ref<boolean> = ref(false);
-function openMobileNavigation() {
-  isOpenedMenu.value = !isOpenedMenu.value;
-  emit("toggle", isOpenedMenu.value);
-}
+const props = defineProps<{ modelValue: boolean }>();
 const emit = defineEmits<{
   toggle: [value: boolean];
 }>();
+const localValue = computed({
+  get: () => props.modelValue,
+  set: (value) => emit("toggle", value),
+});
 </script>
 
 <style scoped>

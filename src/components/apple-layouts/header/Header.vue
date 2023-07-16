@@ -1,25 +1,38 @@
 <template>
   <header
-    class="fixed z-10 bg-white/50 backdrop-blur-lg"
-    :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'"
+    class="fixed z-10 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0"
   >
+    <!-- :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'" -->
     <nav>
-      <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Navigation Bar: Mobile -->
+      <!-- ---------------------------------------------------------------- Navigation Bar: Mobile -->
       <div class="md:hidden relative">
-        <div class="w-full h-10 flex justify-between items-center">
-          <!-- Brand Logo or Title -->
-          <div class="pl-4">
-            <h1 class="font-bold text-lg uppercase">marvel fitness</h1>
+        <div
+          :class="isOpenedMenu ? 'bg-white' : 'bg-transparent'"
+          class="transition-all duration-500"
+        >
+          <div class="flex justify-between items-center">
+            <!-- Brand Logo or Title -->
+            <div class="pl-4">
+              <h1
+                :class="isOpenedMenu ? 'opacity-0' : 'opacity-100 '"
+                class="font-bold text-lg uppercase transition-opacity duration-300"
+              >
+                marvel fitness
+              </h1>
+            </div>
+
+            <!-- Navigation - Close Button -->
+            <MenumCloseButton
+              v-model="isOpenedMenu"
+              @toggle="(value) => (isOpenedMenu = value)"
+            />
           </div>
-
-          <!-- Navigation - Close Button -->
-          <!-- TODO -->
-          <MenumCloseButton @toggle="(value) => (isOpenedMenu = value)" />
-
           <!-- Mobile Navigation -->
           <div
-            :class="isOpenedMenu ? 'h-[100vh] bg-white' : 'h-0'"
-            class="mobile-nav absolute top-0 inset-x-0 overflow-hidden transition-all duration-500"
+            class="transition-all duration-300"
+            :class="
+              isOpenedMenu ? 'h-screen mt-4 opacity-100' : 'h-0 opacity-0'
+            "
           >
             <ul>
               <template v-for="item in router.options.routes.slice(1)">
@@ -36,7 +49,7 @@
           </div>
         </div>
       </div>
-      <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Navigation Bar: Web -->
+      <!-- ---------------------------------------------------------------- Navigation Bar: Web -->
       <ul class="hidden px-4 md:flex justify-between">
         <li class="flex items-center cursor-pointer" @click="routerTo('home')">
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
