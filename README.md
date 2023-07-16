@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fb755542-ceba-4628-9023-61ff7b040bb1/deploy-status)](https://app.netlify.com/sites/marvel-fitness/deploys)
 
-
+[![learn-github-actions](https://github.com/techighpark/vue-ts-starter-pack/actions/workflows/main.yml/badge.svg)](https://github.com/techighpark/vue-ts-starter-pack/actions/workflows/main.yml)
 
 # Vue 3 + TypeScript + Vite
 
