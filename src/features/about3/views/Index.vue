@@ -71,7 +71,7 @@
               class="group-hover/item:scale-110 transition-transform duration-300"
             />
             {{ item }}
-            <!-- <div
+            <!-- <divg
               class="absolute bottom-0 left-0 group-hover/item:bottom-1/2 group-hover/item:left-1/2 group-hover/item:-translate-x-1/2 group-hover/item:-translate-y-1/2 transition-all duration-700"
             >
               <h5
@@ -79,7 +79,7 @@
               >
                 MachineA
               </h5>
-            </div> -->
+            </divg> -->
           </div>
           <hr />
           <div class="flex flex-col items-center">
