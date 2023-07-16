@@ -15,7 +15,7 @@
       <!-- first image: Web -->
       <div
         id="first-container"
-        class="relative w-full h-[calc(200vh-2.5rem)] opacity-0 transition-all duration-300 bg-black"
+        class="relative w-full h-[calc(200vh-2.5rem)] opacity-0 transition-all duration-300"
       >
         <div
           id="first-image"
@@ -47,7 +47,7 @@
       <!-- second image: Web  -->
       <div
         id="second-container"
-        class="relative w-full opacity-0 transition-all duration-300 bg-black"
+        class="relative w-full opacity-0 transition-all duration-300"
       >
         <div class="absolute -top-[calc(100vh-2.5rem)]">
           <div class="relative w-full h-[calc(200vh-2.5rem)]">
@@ -78,24 +78,9 @@
           </div>
         </div>
       </div>
-
       <!-- third image: Web -->
+      <div class="bg-red-500">asdf</div>
     </div>
-    <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Mobile -->
-    <!-- first image -->
-    <!-- <div class="w-full flex md:hidden flex-col gap-y-20">
-      <div class="shrink-0 mt-40 text-white text-right">
-        <div class="flex flex-col gap-y-4">
-          <span class="font-bold text-4xl sm:text-6xl">첫번째 문구</span>
-          <span class="text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, dicta.
-          </span>
-        </div>
-      </div>
-      <div class="w-full max-w-xl shrink-0 m-auto bg-black overflow-hidden">
-        <img src="@assets/image2.jpg" alt="" class="w-full object-contain" />
-      </div>
-    </div> -->
   </div>
 </template>
 
