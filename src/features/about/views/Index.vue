@@ -1,6 +1,6 @@
 <template>
   <div id="contents-container" class="min-h-screen w-full bg-black/0">
-    <div class="h-[250vh]">
+    <div class="h-[200vh]">
       <div id="fixed-brand-name" class="fixed inset-x-0">
         <p
           id="brand-name"
@@ -11,23 +11,30 @@
       </div>
     </div>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Web -->
-    <div class="z-10 py-10 gap-y-20">
+    <div class="relative z-10">
       <!-- first image: Web -->
       <div
         id="first-container"
-        class="relative w-full h-[200vh] transition-all duration-300"
+        class="relative w-full h-[calc(200vh-2.5rem)] opacity-0 transition-all duration-300 bg-black"
       >
-        <div id="first-image" class="sticky top-10 h-[100vh] overflow-hidden">
+        <div
+          id="first-image"
+          class="sticky top-10 h-[calc(100vh-2.5rem)] overflow-hidden"
+        >
           <img
             src="@assets/m4-l.jpg"
             alt=""
             class="h-full w-full object-cover"
           />
         </div>
-        <div id="first-text" class="absolute shrink-0 w-full text-white">
+
+        <div
+          id="first-text"
+          class="absolute w-full text-white transition-all duration-200"
+        >
           <div class="flex flex-col text-center gap-y-4">
             <span class="font-black md:text-5xl lg:text-7xl xl:text-9xl">
-              첫번째 문구
+              Motivation
             </span>
             <span class="md:text-base lg:text-lg xl:text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
@@ -40,69 +47,39 @@
       <!-- second image: Web  -->
       <div
         id="second-container"
-        class="relative w-full h-screen overflow-hidden md:flex justify-between border"
+        class="relative w-full opacity-0 transition-all duration-300 bg-black"
       >
-        <div
-          id="second-text"
-          class="absolute -left-4 opacity-0 shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white transition-all duration-300"
-        >
-          <div class="flex flex-col gap-y-4">
-            <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
-              두번째 문구
-            </span>
-            <span class="md:text-base lg:text-lg xl:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-              dicta.
-            </span>
-          </div>
-        </div>
-        <div
-          id="second-image"
-          class="absolute -right-4 opacity-0 transition-all duration-[1500ms]"
-        >
-          <div
-            class="w-full md:max-w-xs lg:max-w-md xl:max-w-xl shrink-0 bg-black overflow-hidden"
-          >
-            <img
-              src="@assets/image4.jpg"
-              alt=""
-              class="w-full object-contain"
-            />
+        <div class="absolute -top-[calc(100vh-2.5rem)]">
+          <div class="relative w-full h-[calc(200vh-2.5rem)]">
+            <div
+              id="second-image"
+              class="sticky top-10 h-[calc(100vh-2.5rem)] overflow-hidden"
+            >
+              <img
+                src="@assets/m5-l.jpg"
+                alt=""
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div
+              id="second-text"
+              class="absolute w-full text-white transition-all duration-200"
+            >
+              <div class="flex flex-col text-center gap-y-4">
+                <span class="font-black md:text-5xl lg:text-7xl xl:text-9xl">
+                  Strategic
+                </span>
+                <span class="md:text-base lg:text-lg xl:text-xl">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+                  dicta.
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- third image: Web -->
-      <div
-        id="third-container"
-        class="relative w-full h-[90rem] md:flex flex-col justify-start items-center"
-      >
-        <div
-          id="third-text"
-          class="shrink-0 mt-28 mb-16 text-white transition-all duration-[1500ms]"
-        >
-          <div class="flex flex-col gap-y-4">
-            <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
-              세번째 문구
-            </span>
-            <span class="md:text-base lg:text-lg xl:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
-              dicta.
-            </span>
-          </div>
-        </div>
-        <div id="third-image" class="transition-all duration-[1500ms]">
-          <div
-            class="w-full md:max-w-xl lg:max-w-3xl xl:max-w-5xl shrink-0 bg-black overflow-hidden"
-          >
-            <img
-              src="@assets/image5.jpg"
-              alt=""
-              class="w-full object-contain"
-            />
-          </div>
-        </div>
-      </div>
     </div>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Mobile -->
     <!-- first image -->
@@ -183,7 +160,7 @@ let currentScale: Ref<number> = ref(1);
 const minScale = 1;
 const maxScale = 80;
 function updateScale() {
-  const scrollY = window.scrollY - viewHeight.value / 2;
+  const scrollY = window.scrollY - viewHeight.value * 0.5;
   const newScale = Math.max(
     minScale,
     Math.min(maxScale, (maxScale * scrollY) / (viewHeight.value * 1))
@@ -226,15 +203,25 @@ function updateBackgroundColor() {
 | First Image
 |------------------------------------------------------------------------
 */
-let firstContainer: HTMLElement | null;
-onMounted(() => {
-  firstContainer = document.getElementById("first-container");
+let firstConatiner: HTMLElement | null;
+let firstText: HTMLElement | null;
 
-  const firstOptions = { threshold: 0.2 };
+onMounted(() => {
+  const firstContainerOptions = {
+    threshold: 0.5,
+  };
+  firstConatiner = document.getElementById("first-container");
   new IntersectionObserver(
     (entries) => firstObserve(entries),
-    firstOptions
-  ).observe(firstContainer!);
+    firstContainerOptions
+  ).observe(firstConatiner!);
+
+  const firstTextOptions = { threshold: 1, rootMargin: "-10% 0px" };
+  firstText = document.getElementById("first-text");
+  new IntersectionObserver(
+    (entries) => firstObserve(entries),
+    firstTextOptions
+  ).observe(firstText!);
 });
 
 function firstObserve(entries: IntersectionObserverEntry[]) {
@@ -244,6 +231,7 @@ function firstObserve(entries: IntersectionObserverEntry[]) {
       element.style.opacity = "1.0";
     } else {
       element.style.opacity = "0";
+      firstConatiner!.style.opacity = "0";
     }
   });
 }
@@ -253,32 +241,33 @@ function firstObserve(entries: IntersectionObserverEntry[]) {
 |------------------------------------------------------------------------
 */
 let secondContainer: HTMLElement | null;
-let secondImage: HTMLElement | null;
 let secondText: HTMLElement | null;
 onMounted(() => {
+  const secondContainerOptions = {
+    threshold: 0.5,
+  };
   secondContainer = document.getElementById("second-container");
-  secondImage = document.getElementById("second-image");
-  secondText = document.getElementById("second-text");
-
-  const secondOptions = { threshold: 0.7 };
   new IntersectionObserver(
     (entries) => secondObserve(entries),
-    secondOptions
+    secondContainerOptions
   ).observe(secondContainer!);
+
+  const secondTextOptions = { threshold: 1, rootMargin: "-10% 0px" };
+  secondText = document.getElementById("second-text");
+  new IntersectionObserver(
+    (entries) => secondObserve(entries),
+    secondTextOptions
+  ).observe(secondText!);
 });
 
 function secondObserve(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
+    const element = entry.target as HTMLElement;
     if (entry.isIntersecting) {
-      secondText!.style.opacity = "1";
-      secondText!.style.left = "5rem";
-      secondImage!.style.opacity = "1";
-      secondImage!.style.right = "5rem";
+      element.style.opacity = "1.0";
     } else {
-      secondText!.style.opacity = "0";
-      secondText!.style.left = "-1rem";
-      secondImage!.style.opacity = "0";
-      secondImage!.style.right = "-1rem";
+      element.style.opacity = "0";
+      secondContainer!.style.opacity = "0";
     }
   });
 }
