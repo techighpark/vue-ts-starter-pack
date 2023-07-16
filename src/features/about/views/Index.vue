@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="contents-container"
-    class="min-h-screen w-full overflow-hidden bg-black/0"
-  >
+  <div id="contents-container" class="min-h-screen w-full bg-black/0">
     <div class="h-[250vh]">
       <div id="fixed-brand-name" class="fixed inset-x-0">
         <p
@@ -14,23 +11,21 @@
       </div>
     </div>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Web -->
-    <div class="z-10 py-10 flex flex-col items-center gap-y-20">
+    <div class="z-10 py-10 gap-y-20">
       <!-- first image: Web -->
       <div
         id="first-container"
-        class="relative w-full h-screen flex justify-between items-center opacity-0 transition-all duration-300 border"
+        class="relative w-full h-[200vh] transition-all duration-300"
       >
-        <div
-          id="first-image"
-          class="w-full h-96 shrink-0 overflow-hidden grayscale"
-        >
-          <img src="@assets/image2.jpg" alt="" class="w-full object-contain" />
+        <div id="first-image" class="sticky top-10 h-[100vh] overflow-hidden">
+          <img
+            src="@assets/m4-l.jpg"
+            alt=""
+            class="h-full w-full object-cover"
+          />
         </div>
-        <div
-          id="first-text"
-          class="absolute shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white text-right"
-        >
-          <div class="flex flex-col gap-y-4">
+        <div id="first-text" class="absolute shrink-0 w-full text-white">
+          <div class="flex flex-col text-center gap-y-4">
             <span class="font-black md:text-5xl lg:text-7xl xl:text-9xl">
               첫번째 문구
             </span>
@@ -45,7 +40,7 @@
       <!-- second image: Web  -->
       <div
         id="second-container"
-        class="relative w-full h-[60rem] overflow-hidden md:flex justify-between"
+        class="relative w-full h-screen overflow-hidden md:flex justify-between border"
       >
         <div
           id="second-text"
@@ -235,7 +230,7 @@ let firstContainer: HTMLElement | null;
 onMounted(() => {
   firstContainer = document.getElementById("first-container");
 
-  const firstOptions = { threshold: 0.7 };
+  const firstOptions = { threshold: 0.2 };
   new IntersectionObserver(
     (entries) => firstObserve(entries),
     firstOptions

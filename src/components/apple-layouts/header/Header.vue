@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed z-10 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0"
+    class="fixed z-10 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0 px-4"
   >
     <!-- :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'" -->
     <nav class="">

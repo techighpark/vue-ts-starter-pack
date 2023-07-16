@@ -1,5 +1,5 @@
 <template>
-  <div class="h-10 pr-4 flex items-center justify-end">
+  <div class="h-10 flex items-center justify-end">
     <input
       v-model="localValue"
       type="checkbox"
