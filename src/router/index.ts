@@ -6,30 +6,42 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: {
+      label: "Home",
+    },
   },
   {
-    path: "/center",
-    name: "center",
+    path: "/about1",
+    name: "about1",
     component: () =>
       import(
-        /* webpackChunkName: "center" */ "@features/about/views/Index.vue"
+        /* webpackChunkName: "about1" */ "@features/about/views/Index.vue"
       ),
+    meta: {
+      label: "About1",
+    },
   },
   {
-    path: "/trainer",
-    name: "trainer",
+    path: "/about2",
+    name: "about2",
     component: () =>
       import(
-        /* webpackChunkName: "trainer" */ "@features/about2/views/Index.vue"
+        /* webpackChunkName: "about2" */ "@features/about2/views/Index.vue"
       ),
+    meta: {
+      label: "About2",
+    },
   },
   {
-    path: "/machine",
-    name: "machine",
+    path: "/about3",
+    name: "about3",
     component: () =>
       import(
-        /* webpackChunkName: "machine" */ "@features/about3/views/Index.vue"
+        /* webpackChunkName: "abou3" */ "@features/about3/views/Index.vue"
       ),
+    meta: {
+      label: "About3",
+    },
   },
 ];
 

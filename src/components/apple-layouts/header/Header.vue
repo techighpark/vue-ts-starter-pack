@@ -22,13 +22,15 @@
             class="mobile-nav absolute top-0 inset-x-0 overflow-hidden transition-all duration-500"
           >
             <ul>
-              <template v-for="item in routers">
-                <li class="mobile-nav-item" @click="routerTo(item.routeName)">
-                  <span>{{ item.label }}</span>
-                  <span class="mobile-nav-chevron">
-                    <ChevronRightIcon class="stroke-1" />
-                  </span>
-                </li>
+              <template v-for="item in router.options.routes.slice(1)">
+                <template v-if="item.meta?.label">
+                  <li class="mobile-nav-item" @click="routerTo(item.name)">
+                    <span>{{ item.meta.label }}</span>
+                    <span class="mobile-nav-chevron">
+                      <ChevronRightIcon class="stroke-1" />
+                    </span>
+                  </li>
+                </template>
               </template>
             </ul>
           </div>
@@ -39,10 +41,12 @@
         <li class="flex items-center cursor-pointer" @click="routerTo('home')">
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
         </li>
-        <template v-for="item in routers">
-          <li class="web-nav-item" @click="routerTo(item.routeName)">
-            <span class="">{{ item.label }}</span>
-          </li>
+        <template v-for="item in router.options.routes.slice(1)">
+          <template v-if="item.meta?.label">
+            <li class="web-nav-item" @click="routerTo(item.name)">
+              <span class="">{{ item.meta.label }}</span>
+            </li>
+          </template>
         </template>
         <li class="web-nav-item">🛒</li>
       </ul>
@@ -51,33 +55,26 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 import { Ref, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, RouteRecordName } from "vue-router";
+import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 // vue
 import MenumCloseButton from "@components/MenuCloseButton.vue";
 
-// Mobile
+const router = useRouter();
+/*
+|------------------------------------------------------------------------------------------
+| Mobile Navigation 
+|------------------------------------------------------------------------------------------
+*/
 const isOpenedMenu: Ref<boolean> = ref(false);
 
-// routers
-const routers = [
-  {
-    label: "Center",
-    routeName: "center",
-  },
-  {
-    label: "Trainer",
-    routeName: "trainer",
-  },
-  {
-    label: "Machine",
-    routeName: "machine",
-  },
-];
-// router push
-const router = useRouter();
-function routerTo(value: string): void {
+/*
+|------------------------------------------------------------------------------------------
+| Navigation Push
+|------------------------------------------------------------------------------------------
+*/
+function routerTo(value: RouteRecordName | undefined): void {
   router.push({ name: value });
   isOpenedMenu.value = false;
 }
