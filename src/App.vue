@@ -11,6 +11,9 @@ import Layout from "@components/apple-layouts/Layout.vue";
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: white;
 }

@@ -3,7 +3,7 @@
     class="fixed z-10 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0"
   >
     <!-- :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'" -->
-    <nav>
+    <nav class="">
       <!-- ---------------------------------------------------------------- Navigation Bar: Mobile -->
       <div class="md:hidden relative">
         <div
@@ -12,7 +12,7 @@
         >
           <div class="flex justify-between items-center">
             <!-- Brand Logo or Title -->
-            <div class="pl-4">
+            <div class="">
               <h1
                 :class="isOpenedMenu ? 'opacity-0' : 'opacity-100 '"
                 class="font-bold text-lg uppercase transition-opacity duration-300"
@@ -50,7 +50,7 @@
         </div>
       </div>
       <!-- ---------------------------------------------------------------- Navigation Bar: Web -->
-      <ul class="hidden px-4 md:flex justify-between">
+      <ul class="hidden md:flex justify-between">
         <li class="flex items-center cursor-pointer" @click="routerTo('home')">
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
         </li>

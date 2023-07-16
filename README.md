@@ -134,6 +134,14 @@ npm install @heroicons/vue
 npm install @headlessui/vue
 ```
 
+### vueuse
+
+```bash
+npm i @vueuse/core
+```
+
+[vueuse](https://vueuse.org/core/useRafFn/#useraffn)
+
 ---
 
 # ERROR

@@ -1,38 +1,37 @@
 <template>
-  <div id="contents-container" class="min-h-screen bg-black/0">
-    <div id="sticky-container" class="sticky w-full">
-      <p
-        id="brand-name"
-        class="w-full h-full flex items-start justify-center uppercase font-bold text-black opacity-10 text-7xl origin-center transition-all duration-300"
-      >
-        marvel fitness
-      </p>
+  <div
+    id="contents-container"
+    class="min-h-screen w-full overflow-hidden bg-black/0"
+  >
+    <div class="h-[250vh]">
+      <div id="fixed-brand-name" class="fixed inset-x-0">
+        <p
+          id="brand-name"
+          class="flex items-start justify-center uppercase font-bold text-black opacity-10 text-3xl sm:text-7xl origin-center transition-all duration-300"
+        >
+          marvel fitness
+        </p>
+      </div>
     </div>
-    <div class="h-[225vh]"></div>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------------- Web -->
     <div class="z-10 py-10 flex flex-col items-center gap-y-20">
       <!-- first image: Web -->
       <div
         id="first-container"
-        class="w-full h-[60rem] px-20 hidden md:flex justify-between opacity-0 transition-all duration-[1500ms]"
+        class="relative w-full h-screen flex justify-between items-center opacity-0 transition-all duration-300 border"
       >
-        <div id="first-image" class="">
-          <div
-            class="w-full md:max-w-xs lg:max-w-md xl:max-w-xl shrink-0 bg-black overflow-hidden"
-          >
-            <img
-              src="@assets/image2.jpg"
-              alt=""
-              class="w-full object-contain"
-            />
-          </div>
+        <div
+          id="first-image"
+          class="w-full h-96 shrink-0 overflow-hidden grayscale"
+        >
+          <img src="@assets/image2.jpg" alt="" class="w-full object-contain" />
         </div>
         <div
           id="first-text"
-          class="shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white text-right"
+          class="absolute shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white text-right"
         >
           <div class="flex flex-col gap-y-4">
-            <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
+            <span class="font-black md:text-5xl lg:text-7xl xl:text-9xl">
               첫번째 문구
             </span>
             <span class="md:text-base lg:text-lg xl:text-xl">
@@ -46,11 +45,11 @@
       <!-- second image: Web  -->
       <div
         id="second-container"
-        class="relative w-full h-[60rem] hidden md:flex justify-between"
+        class="relative w-full h-[60rem] overflow-hidden md:flex justify-between"
       >
         <div
           id="second-text"
-          class="absolute -left-4 opacity-0 shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white transition-all duration-[1500ms]"
+          class="absolute -left-4 opacity-0 shrink-0 md:mt-20 lg:mt-28 xl:mt-40 text-white transition-all duration-300"
         >
           <div class="flex flex-col gap-y-4">
             <span class="font-bold md:text-5xl lg:text-7xl xl:text-9xl">
@@ -81,7 +80,7 @@
       <!-- third image: Web -->
       <div
         id="third-container"
-        class="relative w-full h-[90rem] hidden md:flex flex-col justify-start items-center"
+        class="relative w-full h-[90rem] md:flex flex-col justify-start items-center"
       >
         <div
           id="third-text"
@@ -129,118 +128,97 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { Ref, onMounted, ref } from "vue";
 
-const viewHeight = ref(window.visualViewport?.height);
-const halfViewHeight = ref(window.visualViewport?.height! / 2);
 /*
 |--------------------------------------------------------------------------------------------------------------
 | First Area
 |--------------------------------------------------------------------------------------------------------------
 */
-let brandName: HTMLElement | null;
+const viewHeight: Ref<number> = ref(window.visualViewport?.height!);
 let contentsContainer: HTMLElement | null;
-onMounted(() => {
-  const viewHeight = window.visualViewport!.height / 2;
-  const stickyContainer: HTMLElement | null =
-    document.getElementById("sticky-container");
-  if (stickyContainer !== null)
-    stickyContainer.style.top = `${viewHeight - 100}px`;
+let stickyContainer: HTMLElement | null;
+let brandName: HTMLElement | null;
 
-  brandName = document.getElementById("brand-name");
+onMounted(() => {
   contentsContainer = document.getElementById("contents-container");
+  stickyContainer = document.getElementById("fixed-brand-name");
+  brandName = document.getElementById("brand-name");
+
+  const stickPosition = viewHeight.value / 2 - viewHeight.value * 0.1;
+  if (stickyContainer !== null) {
+    stickyContainer.style.top = `${stickPosition}px`;
+  }
+
   document.body.addEventListener("wheel", (_: WheelEvent) => {
-    requestAnimationFrame(updateScale);
-    requestAnimationFrame(updateOpacity);
-    requestAnimationFrame(updateBackgroundColor);
+    if (brandName !== null) {
+      updateScale();
+      updateOpacity();
+    }
+    if (contentsContainer !== null) {
+      updateBackgroundColor();
+    }
   });
 });
+/*
+|------------------------------------------------------------------------
+| Text Opacity
+|------------------------------------------------------------------------
+*/
+let currentOpacity: Ref<number> = ref(0.1);
+const minOpacity = 0.1;
+const maxOpacity = 1;
+
+function updateOpacity() {
+  const scrollY = window.scrollY;
+  const newOpacity = Math.max(
+    minOpacity,
+    Math.min(maxOpacity, (maxOpacity * scrollY) / (viewHeight.value * 0.5))
+  );
+  currentOpacity.value = newOpacity;
+  brandName!.style.opacity = `${currentOpacity.value}`;
+}
 
 /*
 |------------------------------------------------------------------------
 | Text Scale
 |------------------------------------------------------------------------
 */
-let currentScale = 1;
+let currentScale: Ref<number> = ref(1);
 const minScale = 1;
-const maxScale = 60;
-let scaleAnimation: number;
+const maxScale = 80;
 function updateScale() {
-  const scrollY = window.scrollY - halfViewHeight.value;
+  const scrollY = window.scrollY - viewHeight.value / 2;
   const newScale = Math.max(
     minScale,
-    Math.min(maxScale, (scrollY * maxScale) / viewHeight.value!)
+    Math.min(maxScale, (maxScale * scrollY) / (viewHeight.value * 1))
   );
-
-  currentScale = newScale;
-
-  if (currentScale === newScale) {
-    cancelAnimationFrame(scaleAnimation);
+  currentScale.value = newScale;
+  brandName!.style.transform = `matrix(${newScale},0,0,${newScale},0,0)`;
+  if (window.scrollY >= viewHeight.value! * 1.5) {
+    brandName!.style.display = "none";
   } else {
-    scaleAnimation = requestAnimationFrame(updateScale);
-  }
-
-  if (brandName !== null) {
-    brandName.style.transform = `matrix(${newScale},0,0,${newScale},0,0)`;
-    if (window.scrollY >= viewHeight.value! * 1.5) {
-      brandName.style.opacity = `0`;
-    } else {
-      brandName.style.opacity = `1`;
-    }
+    brandName!.style.display = "flex";
   }
 }
-/*
-|------------------------------------------------------------------------
-| Text Opacity
-|------------------------------------------------------------------------
-*/
-let currentOpacity = 0.1;
-const minOpcaity = 0.1;
-const maxOpacity = 1;
 
-let opacityAnimation: number;
-function updateOpacity() {
-  const scrollY = window.scrollY;
-  const newOpacity = Math.max(
-    minOpcaity,
-    Math.min(maxOpacity, scrollY / halfViewHeight.value)
-  );
-  currentOpacity = newOpacity;
-
-  if (currentOpacity === newOpacity) {
-    cancelAnimationFrame(opacityAnimation);
-  } else {
-    opacityAnimation = requestAnimationFrame(updateOpacity);
-  }
-
-  if (brandName !== null) {
-    brandName.style.opacity = `${newOpacity}`;
-  }
-}
 /*
 |------------------------------------------------------------------------
 | Background Opacity
 |------------------------------------------------------------------------
 */
-let currentBgOpacity = 0;
+let currentBgOpacity: Ref<number> = ref(0);
 const minBgOpcaity = 0;
 const maxBgOpacity = 1;
-let bgOpacityAnimation: number;
 function updateBackgroundColor() {
-  const scrollY = window.scrollY - 1.5 * viewHeight.value!;
+  const scrollY = window.scrollY - viewHeight.value! * 1.5;
   const newBgOpacity = Math.max(
     minBgOpcaity,
-    Math.min(maxBgOpacity, scrollY * 0.002)
+    Math.min(maxBgOpacity, (maxBgOpacity * scrollY) / (viewHeight.value * 0.5))
   );
+  currentBgOpacity.value = newBgOpacity;
 
-  if (currentBgOpacity === newBgOpacity) {
-    cancelAnimationFrame(bgOpacityAnimation);
-  } else {
-    bgOpacityAnimation = requestAnimationFrame(updateScale);
-  }
-  if (contentsContainer !== null) {
-    contentsContainer.style.backgroundColor = `rgb(0 0 0 / ${newBgOpacity})`;
-  }
+  contentsContainer!.style.backgroundColor = `rgb(0 0 0 / ${newBgOpacity})`;
 }
 
 /*
