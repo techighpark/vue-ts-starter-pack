@@ -143,20 +143,20 @@ const selectedWorkout: Ref<WorkoutType> = ref(workoutType.value[0]);
 | Machine Type
 |------------------------------------------------------------------------
 */
-const MACHINE_TYPE = {
-  All: "all",
-  Arm: "arm",
-  Chest: "chest",
-  Back: "back",
-  Shoulder: "shoulder",
-  Abs: "abs",
-} as const;
+// const MACHINE_TYPE = {
+//   All: "all",
+//   Arm: "arm",
+//   Chest: "chest",
+//   Back: "back",
+//   Shoulder: "shoulder",
+//   Abs: "abs",
+// } as const;
 
-type MachineType = keyof typeof MACHINE_TYPE;
-/*
-type MachineType = "All" | "Arm" | "Chest" | "Back" | "Shoulder" | "Abs"
-*/
-type MachineTypeof = typeof MACHINE_TYPE;
+// type MachineType = keyof typeof MACHINE_TYPE;
+// /*
+// type MachineType = "All" | "Arm" | "Chest" | "Back" | "Shoulder" | "Abs"
+// */
+// type MachineTypeof = typeof MACHINE_TYPE;
 /*
 type MachineTypeof = {
     readonly All: "all";
@@ -167,15 +167,15 @@ type MachineTypeof = {
     readonly Abs: "abs";
 } 
 */
-type ObjectValue<T> = T[keyof T];
-type MachineObjectValue = ObjectValue<MachineTypeof>;
-/*
-type MachineObjectValue = "all" | "arm" | "chest" | "back" | "shoulder" | "abs"
-*/
+// type ObjectValue<T> = T[keyof T];
+// type MachineObjectValue = ObjectValue<MachineTypeof>;
+// /*
+// type MachineObjectValue = "all" | "arm" | "chest" | "back" | "shoulder" | "abs"
+// */
 
-function getMachineType(machine: MachineType): MachineObjectValue {
-  return MACHINE_TYPE[machine];
-}
+// function getMachineType(machine: MachineType): MachineObjectValue {
+//   return MACHINE_TYPE[machine];
+// }
 </script>
 
 <style scoped>
