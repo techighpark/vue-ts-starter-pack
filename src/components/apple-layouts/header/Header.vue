@@ -1,8 +1,36 @@
 <template>
   <header
-    class="fixed z-50 w-full py-1 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0"
+    class="fixed z-50 w-full py-1 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0 min-w-[20rem]"
   >
-    <!-- :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'" -->
+    <div
+      class="sm:hidden w-full max-w-[20rem] bg-rose-600 text-center text-white font-bold"
+    >
+      xs / 320px / 20rem
+    </div>
+    <div
+      class="hidden sm:inline-block md:hidden w-full max-w-screen-sm bg-rose-600 text-center text-white font-bold"
+    >
+      sm / 640px / 40rem
+    </div>
+    <div
+      class="hidden md:inline-block lg:hidden w-full max-w-screen-md bg-rose-600 text-center text-white font-bold"
+    >
+      md / 768px / 48rem
+    </div>
+    <div
+      class="hidden lg:inline-block w-full max-w-screen-lg bg-rose-600 text-center text-white font-bold"
+    >
+      lg / 1024px / 64rem
+    </div>
+    <!-- <div
+      class="hidden xl:inline-block 2xl:hidden w-full max-w-screen-xl bg-rose-500"
+    >
+      xl
+    </div>
+    <div class="hidden 2xl:inline-block w-full max-w-screen-2xl bg-rose-500">
+      2xl
+    </div> -->
+    <div class="hidden w-full max-w-3xl bg-rose-500">3xl</div>
     <nav class="w-full">
       <!-- ---------------------------------------------------------------- Navigation Bar: Mobile -->
       <div

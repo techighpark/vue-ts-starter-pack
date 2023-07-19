@@ -1,47 +1,32 @@
 <template>
-  <div class="relative flex flex-col gap-y-4">
+  <div class="relative flex flex-col gap-y-2">
     <!-- ----------------- first area ----------------- -->
-    <div
-      class="first-observer-area relative py-20 px-20 flex justify-end bg-gray-100 transition-all duration-500"
-    >
-      <div class="w-32 shrink-0 md:w-48 lg:w-72">
+    <div class="relative h-96 border border-pink-500">
+      <div class="">
         <img
-          src="../../../assets/image1.png"
+          src="../../../assets/main-banner1.webp"
           alt=""
-          class="h-full object-cover"
+          class="object-cover grayscale"
         />
       </div>
       <!-- text -->
-      <div
-        class="absolute bottom-1/4 left-10 flex flex-col justify-center gap-y-6 transition-all duration-500"
-      >
-        <p
-          class="flex text-black font-bold font-mono text-4xl md:text-6xl lg:text-7xl italic"
-        >
-          Techigh Studio
-        </p>
-        <p
-          class="flex text-black font-normal font-mono text-lg md:text-2xl lg:text-3xl italic after:content-['&'] after:text-pink-500 after:text-5xl after:font-black"
-        >
-          Front-end Developer
+      <div class="absolute inset-0 flex items-center justify-center">
+        <p class="mb-20 text-white flex flex-col items-center">
+          <span class="font-black text-4xl md:text-6xl lg:text-7xl uppercase">
+            Marvel Fitness
+          </span>
+          <span class="text-xl md:text-2xl lg:text-3xl">Pro. Beyond</span>
         </p>
       </div>
     </div>
 
     <!-- ----------------- second area ----------------- -->
-    <div class="relative h-[65vh] p-10 bg-black">
+    <div class="relative p-10 bg-black">
       <!-- text -->
-      <div v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]" :key="item">
-        <p class="text-white font-bold font-mono text-5xl leading-none italic">
-          {{ item }} Lorem ipsum dolor sit amet.
-        </p>
-      </div>
     </div>
 
     <!-- ----------------- third area ----------------- -->
-    <div
-      class="first-observer-area relative opacity-0 transition-all duration-500"
-    >
+    <div class="relative">
       <img
         src="../../../assets/image6.jpg"
         alt=""
