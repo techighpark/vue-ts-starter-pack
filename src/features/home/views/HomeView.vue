@@ -1,17 +1,17 @@
 <template>
   <div class="relative flex flex-col gap-y-2">
     <!-- ----------------- first area ----------------- -->
-    <div class="relative h-96 border border-pink-500">
-      <div class="">
+    <div class="relative">
+      <div class="w-full overflow-hidden bg-gray-100">
         <img
-          src="../../../assets/main-banner1.webp"
+          src="../../../assets/main-xl.jpg"
           alt=""
-          class="object-cover grayscale"
+          class="object-cover object-top w-full h-[31rem] md:h-[40rem] lg:h-[43rem]"
         />
       </div>
       <!-- text -->
-      <div class="absolute inset-0 flex items-center justify-center">
-        <p class="mb-20 text-white flex flex-col items-center">
+      <div class="absolute inset-0 flex items-top justify-center">
+        <p class="text-white flex flex-col items-center mt-28">
           <span class="font-black text-4xl md:text-6xl lg:text-7xl uppercase">
             Marvel Fitness
           </span>
@@ -21,8 +21,33 @@
     </div>
 
     <!-- ----------------- second area ----------------- -->
-    <div class="relative p-10 bg-black">
-      <!-- text -->
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 px-2 overflow-hidden"
+    >
+      <div class="relative bg-gray-100">
+        <img
+          src="../../../assets/m3.jpeg"
+          alt=""
+          class="object-cover object-top w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
+        />
+        <div
+          class="absolute inset-0 flex items-center justify-center hover:bg-gray-900/30 hover:backdrop-blur-md transition-all cursor-pointer"
+        >
+          <p class="font-bold text-xl text-white">Body Profile</p>
+        </div>
+      </div>
+      <div class="relative bg-gray-100">
+        <img
+          src="../../../assets/m4-l.jpg"
+          alt=""
+          class="object-cover object-top w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
+        />
+        <div
+          class="absolute inset-0 flex items-center justify-center hover:bg-gray-900/30 hover:backdrop-blur-md transition-all cursor-pointer"
+        >
+          <p class="font-bold text-xl text-white">Center</p>
+        </div>
+      </div>
     </div>
 
     <!-- ----------------- third area ----------------- -->
@@ -30,7 +55,7 @@
       <img
         src="../../../assets/image6.jpg"
         alt=""
-        class="aspect-square object-cover object-top"
+        class="aspect-video object-cover object-top"
       />
       <!-- text -->
       <div
