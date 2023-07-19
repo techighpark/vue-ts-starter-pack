@@ -1,56 +1,54 @@
 <template>
   <header
-    class="fixed z-10 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0 px-4"
+    class="fixed z-50 w-full py-1 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0"
   >
     <!-- :class="isOpenedMenu ? 'inset-0' : 'inset-x-0'" -->
-    <nav class="">
+    <nav class="w-full">
       <!-- ---------------------------------------------------------------- Navigation Bar: Mobile -->
-      <div class="md:hidden relative">
-        <div
-          :class="isOpenedMenu ? 'bg-white' : 'bg-transparent'"
-          class="transition-all duration-500"
-        >
-          <div class="flex justify-between items-center">
-            <!-- Brand Logo or Title -->
-            <div class="">
-              <h1
-                :class="isOpenedMenu ? 'opacity-0' : 'opacity-100 '"
-                class="font-bold text-lg uppercase transition-opacity duration-300"
-              >
-                marvel fitness
-              </h1>
-            </div>
-
-            <!-- Navigation - Close Button -->
-            <MenumCloseButton
-              v-model="isOpenedMenu"
-              @toggle="(value) => (isOpenedMenu = value)"
-            />
-          </div>
-          <!-- Mobile Navigation -->
-          <div
-            class="transition-all duration-300"
-            :class="
-              isOpenedMenu ? 'h-screen mt-4 opacity-100' : 'h-0 opacity-0'
-            "
+      <div
+        :class="isOpenedMenu ? 'bg-white' : 'bg-transparent'"
+        class="md:hidden relative transition-all duration-500"
+      >
+        <div class="flex justify-between items-center mx-4">
+          <!-- Brand Logo or Title -->
+          <h1
+            :class="isOpenedMenu ? 'opacity-0' : 'opacity-100 '"
+            class="font-bold text-lg uppercase transition-opacity duration-300"
           >
-            <ul>
-              <template v-for="item in router.options.routes.slice(1)">
-                <template v-if="item.meta?.label">
-                  <li class="mobile-nav-item" @click="routerTo(item.name)">
-                    <span>{{ item.meta.label }}</span>
-                    <span class="mobile-nav-chevron">
-                      <ChevronRightIcon class="stroke-1" />
-                    </span>
-                  </li>
-                </template>
+            marvel fitness
+          </h1>
+
+          <!-- Navigation - Close Button -->
+          <MenumCloseButton
+            v-model="isOpenedMenu"
+            @toggle="(value) => (isOpenedMenu = value)"
+          />
+        </div>
+        <!-- Mobile Navigation -->
+        <div
+          class="transition-all duration-300"
+          :class="
+            isOpenedMenu
+              ? 'h-screen opacity-100 overflow-hidden'
+              : 'h-0 opacity-0'
+          "
+        >
+          <ul class="ml-10 flex flex-col gap-y-2">
+            <template v-for="item in router.options.routes.slice(1)">
+              <template v-if="item.meta?.label">
+                <li class="mobile-nav-item" @click="routerTo(item.name)">
+                  <span>{{ item.meta.label }}</span>
+                  <span class="mobile-nav-chevron">
+                    <ChevronRightIcon class="stroke-1" />
+                  </span>
+                </li>
               </template>
-            </ul>
-          </div>
+            </template>
+          </ul>
         </div>
       </div>
       <!-- ---------------------------------------------------------------- Navigation Bar: Web -->
-      <ul class="hidden md:flex justify-between">
+      <ul class="hidden md:flex justify-between mx-6">
         <li class="flex items-center cursor-pointer" @click="routerTo('home')">
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
         </li>
@@ -119,7 +117,7 @@ body input[id="mobile-nav-btn"]:checked ~ body {
 }
 
 .mobile-nav-item {
-  @apply relative px-10 py-1 flex items-center justify-between text-3xl font-medium leading-relaxed  cursor-pointer;
+  @apply relative text-3xl font-bold leading-relaxed  cursor-pointer;
 }
 .mobile-nav-chevron {
   @apply absolute right-4 h-5 w-5 text-gray-500 opacity-0 transition-all;

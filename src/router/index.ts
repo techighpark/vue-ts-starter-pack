@@ -7,6 +7,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "home",
     component: HomeView,
     meta: {
+      title: "",
       label: "Home",
     },
   },
@@ -18,6 +19,7 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "about1" */ "@features/about/views/Index.vue"
       ),
     meta: {
+      title: "About1 - ",
       label: "About1",
     },
   },
@@ -29,6 +31,7 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "about2" */ "@features/about2/views/Index.vue"
       ),
     meta: {
+      title: "About2 - ",
       label: "About2",
     },
   },
@@ -40,6 +43,7 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "abou3" */ "@features/about3/views/Index.vue"
       ),
     meta: {
+      title: "About3 - ",
       label: "About3",
     },
   },
