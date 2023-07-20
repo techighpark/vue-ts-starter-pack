@@ -173,7 +173,7 @@
           </h5>
           <p class="text-gray-100">
             iPad has always been uniquely portable with superfast Wi‑Fi and
-            cellular options.
+            cellular options.a
           </p>
         </div>
       </div>
