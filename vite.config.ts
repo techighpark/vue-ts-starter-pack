@@ -10,6 +10,7 @@ export default defineConfig({
       "@features": resolve(__dirname, "src/features"),
       "@components": resolve(__dirname, "src/components"),
       "@assets": resolve(__dirname, "src/assets"),
+      "@libs": resolve(__dirname, "src/libs"),
     },
   },
   plugins: [vue()],

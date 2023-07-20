@@ -34,29 +34,30 @@
     <nav class="w-full">
       <!-- ---------------------------------------------------------------- Navigation Bar: Mobile -->
       <div
-        :class="isOpenedMenu ? 'bg-white' : 'bg-transparent'"
+        :class="isOpenedMobileMenu ? 'bg-white' : 'bg-transparent'"
         class="md:hidden relative transition-all duration-500"
       >
         <div class="flex justify-between items-center mx-4">
           <!-- Brand Logo or Title -->
           <h1
-            :class="isOpenedMenu ? 'opacity-0' : 'opacity-100 '"
+            @click="routerTo('home')"
+            :class="isOpenedMobileMenu ? 'opacity-0' : 'opacity-100 '"
             class="font-bold text-lg uppercase transition-opacity duration-300"
           >
             marvel fitness
           </h1>
 
           <!-- Navigation - Close Button -->
-          <MenumCloseButton
-            v-model="isOpenedMenu"
-            @toggle="(value) => (isOpenedMenu = value)"
+          <MobileMenuButton
+            v-model="isOpenedMobileMenu"
+            @toggle-mobile-menu="toggleMobileMenu"
           />
         </div>
         <!-- Mobile Navigation -->
         <div
           class="transition-all duration-300"
           :class="
-            isOpenedMenu
+            isOpenedMobileMenu
               ? 'h-screen opacity-100 overflow-hidden'
               : 'h-0 opacity-0'
           "
@@ -64,7 +65,7 @@
           <ul class="ml-10 flex flex-col gap-y-2">
             <template v-for="item in router.options.routes.slice(1)">
               <template v-if="item.meta?.label">
-                <li class="mobile-nav-item" @click="routerTo(item.name)">
+                <li class="mobile-nav-item" @click="routerTo(item)">
                   <span>{{ item.meta.label }}</span>
                   <span class="mobile-nav-chevron">
                     <ChevronRightIcon class="stroke-1" />
@@ -82,7 +83,7 @@
         </li>
         <template v-for="item in router.options.routes.slice(1)">
           <template v-if="item.meta?.label">
-            <li class="web-nav-item" @click="routerTo(item.name)">
+            <li class="web-nav-item" @click="routerTo(item)">
               <span class="">{{ item.meta.label }}</span>
             </li>
           </template>
@@ -95,28 +96,33 @@
 
 <script setup lang="ts">
 import { Ref, ref } from "vue";
-import { useRouter, RouteRecordName } from "vue-router";
+import { useRouter } from "vue-router";
 import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 // vue
-import MenumCloseButton from "@components/MenuCloseButton.vue";
+import MobileMenuButton from "@components/MobileMenuButton.vue";
+// types
+import { RouterTo } from "@type/routers";
 
 const router = useRouter();
 /*
 |------------------------------------------------------------------------------------------
-| Mobile Navigation 
+| Mobile Navigation toggle
 |------------------------------------------------------------------------------------------
 */
-const isOpenedMenu: Ref<boolean> = ref(false);
+const isOpenedMobileMenu: Ref<boolean> = ref(false);
+function toggleMobileMenu(value: boolean) {
+  isOpenedMobileMenu.value = value;
+}
 
 /*
 |------------------------------------------------------------------------------------------
-| Navigation Push
+| route push
 |------------------------------------------------------------------------------------------
 */
-function routerTo(value: RouteRecordName | undefined): void {
-  router.push({ name: value });
-  isOpenedMenu.value = false;
-}
+const routerTo: RouterTo = (value) => {
+  if (typeof value === "object") router.push({ name: value.name });
+  if (typeof value === "string") router.push({ name: value });
+};
 </script>
 
 <style>

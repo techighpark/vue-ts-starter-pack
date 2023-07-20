@@ -15,14 +15,25 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 
 const props = defineProps<{ modelValue: boolean }>();
 const emit = defineEmits<{
-  toggle: [value: boolean];
+  toggleMobileMenu: [value: boolean];
 }>();
 const localValue = computed({
   get: () => props.modelValue,
-  set: (value) => emit("toggle", value),
+  set: (value) => emit("toggleMobileMenu", value),
+});
+const router = useRouter();
+
+/*
+|------------------------------------------------------------------------------------------
+| before router push anywhere, close mobile menu
+|------------------------------------------------------------------------------------------
+*/
+router.beforeEach((_, __) => {
+  emit("toggleMobileMenu", false);
 });
 </script>
 
