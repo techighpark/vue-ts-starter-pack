@@ -40,7 +40,7 @@
         <div class="flex justify-between items-center mx-4">
           <!-- Brand Logo or Title -->
           <h1
-            @click="routerTo('home')"
+            @click="routerTo('home', router)"
             :class="isOpenedMobileMenu ? 'opacity-0' : 'opacity-100 '"
             class="font-bold text-lg uppercase transition-opacity duration-300"
           >
@@ -65,7 +65,7 @@
           <ul class="ml-10 flex flex-col gap-y-2">
             <template v-for="item in router.options.routes.slice(1)">
               <template v-if="item.meta?.label">
-                <li class="mobile-nav-item" @click="routerTo(item)">
+                <li class="mobile-nav-item" @click="routerTo(item, router)">
                   <span>{{ item.meta.label }}</span>
                   <span class="mobile-nav-chevron">
                     <ChevronRightIcon class="stroke-1" />
@@ -78,12 +78,15 @@
       </div>
       <!-- ---------------------------------------------------------------- Navigation Bar: Web -->
       <ul class="hidden md:flex justify-between mx-6">
-        <li class="flex items-center cursor-pointer" @click="routerTo('home')">
+        <li
+          class="flex items-center cursor-pointer"
+          @click="routerTo('home', router)"
+        >
           <h1 class="font-bold text-lg text-black uppercase">marvel fitness</h1>
         </li>
         <template v-for="item in router.options.routes.slice(1)">
           <template v-if="item.meta?.label">
-            <li class="web-nav-item" @click="routerTo(item)">
+            <li class="web-nav-item" @click="routerTo(item, router)">
               <span class="">{{ item.meta.label }}</span>
             </li>
           </template>
@@ -100,8 +103,8 @@ import { useRouter } from "vue-router";
 import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 // vue
 import MobileMenuButton from "@components/MobileMenuButton.vue";
-// types
-import { RouterTo } from "@type/routers";
+// lib
+import { routerTo } from "@router/useRouter";
 
 const router = useRouter();
 /*
@@ -113,16 +116,6 @@ const isOpenedMobileMenu: Ref<boolean> = ref(false);
 function toggleMobileMenu(value: boolean) {
   isOpenedMobileMenu.value = value;
 }
-
-/*
-|------------------------------------------------------------------------------------------
-| route push
-|------------------------------------------------------------------------------------------
-*/
-const routerTo: RouterTo = (value) => {
-  if (typeof value === "object") router.push({ name: value.name });
-  if (typeof value === "string") router.push({ name: value });
-};
 </script>
 
 <style>

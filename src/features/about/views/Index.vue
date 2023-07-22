@@ -109,8 +109,8 @@ onMounted(() => {
 
   document.body.addEventListener("wheel", (_: WheelEvent) => {
     if (brandName !== null) {
-      updateScale();
-      updateOpacity();
+      window.requestAnimationFrame(updateOpacity);
+      window.requestAnimationFrame(updateScale);
     }
     if (contentsContainer !== null) {
       updateBackgroundColor();
@@ -134,6 +134,7 @@ function updateOpacity() {
   );
   currentOpacity.value = newOpacity;
   brandName!.style.opacity = `${currentOpacity.value}`;
+  window.requestAnimationFrame(updateOpacity);
 }
 
 /*
@@ -152,6 +153,15 @@ function updateScale() {
   );
   currentScale.value = newScale;
   brandName!.style.transform = `matrix(${newScale},0,0,${newScale},0,0)`;
+
+  let scaleRaf;
+  console.log(currentScale.value);
+  if (currentScale.value !== newScale) {
+    scaleRaf = window.requestAnimationFrame(updateScale);
+  } else {
+    window.cancelAnimationFrame(scaleRaf!);
+  }
+
   if (window.scrollY >= viewHeight.value! * 1.5) {
     brandName!.style.display = "none";
   } else {

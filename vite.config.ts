@@ -11,6 +11,7 @@ export default defineConfig({
       "@components": resolve(__dirname, "src/components"),
       "@assets": resolve(__dirname, "src/assets"),
       "@libs": resolve(__dirname, "src/libs"),
+      "@router": resolve(__dirname, "src/router"),
     },
   },
   plugins: [vue()],
