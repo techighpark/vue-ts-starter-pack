@@ -25,7 +25,7 @@
           class="sticky top-10 h-[calc(100vh-2.5rem)] overflow-hidden"
         >
           <img
-            src="@assets/m4-l.jpg"
+            src="public/assets/m4-l.jpg"
             alt=""
             class="h-full w-full object-cover"
           />
@@ -59,7 +59,7 @@
               class="sticky top-10 h-[calc(100vh-2.5rem)] overflow-hidden"
             >
               <img
-                src="@assets/m5-l.jpg"
+                src="public/assets/m5-l.jpg"
                 alt=""
                 class="h-full w-full object-cover"
               />
@@ -99,7 +99,7 @@
       </div>
       <div class="mt-6 h-96 overflow-hidden">
         <img
-          src="@assets/image5.jpg"
+          src="public/assets/image5.jpg"
           alt=""
           class="w-full h-full object-cover object-center"
         />
@@ -114,7 +114,11 @@
         </p>
       </div>
       <div class="mt-20 flex justify-end">
-        <img src="@assets/image10.jpg" alt="" class="h-[30rem] object-cover" />
+        <img
+          src="public/assets/image10.jpg"
+          alt=""
+          class="h-[30rem] object-cover"
+        />
       </div>
       <div class="mx-6 mt-4">
         <p class="text-gray-500">
@@ -128,21 +132,21 @@
       <div class="space-y-4 mt-20">
         <div class="">
           <img
-            src="@assets/image9.jpg"
+            src="public/assets/image9.jpg"
             alt=""
             class="p-4 mx-auto w-96 object-cover bg-gray-50"
           />
         </div>
         <div class="">
           <img
-            src="@assets/image8.jpg"
+            src="public/assets/image8.jpg"
             alt=""
             class="p-4 mx-auto w-96 object-cover bg-gray-50"
           />
         </div>
         <div class="">
           <img
-            src="@assets/image7.jpg"
+            src="public/assets/image7.jpg"
             alt=""
             class="p-4 mx-auto w-96 object-cover bg-gray-50"
           />

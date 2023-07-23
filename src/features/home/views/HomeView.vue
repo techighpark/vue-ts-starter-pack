@@ -4,7 +4,7 @@
     <div class="relative">
       <div class="w-full overflow-hidden bg-gray-100">
         <img
-          src="@assets/main-xl.jpg"
+          src="public/assets/main-xl.jpg"
           alt=""
           class="object-cover object-top w-full h-[31rem] md:h-[40rem] lg:h-[43rem]"
         />
@@ -31,7 +31,7 @@
         "
       >
         <img
-          src="@assets/m4-l.jpg"
+          src="public/assets/m4-l.jpg"
           alt=""
           class="object-cover object-top w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
         />
@@ -47,7 +47,7 @@
       </div>
       <div class="relative bg-gray-100">
         <img
-          src="@assets/image6.jpg"
+          src="public/assets/image6.jpg"
           alt=""
           class="object-cover object-center w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
         />
@@ -66,7 +66,7 @@
     <!-- ----------------- third area ----------------- -->
     <div class="relative bg-gray-100">
       <img
-        src="@assets/m3.jpeg"
+        src="public/assets/m3.jpeg"
         alt=""
         class="object-cover object-top w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
       />
@@ -88,7 +88,7 @@
     </div>
     <div class="relative">
       <img
-        src="@assets/image6.jpg"
+        src="public/assets/image6.jpg"
         alt=""
         class="object-cover object-top w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
       />

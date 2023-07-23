@@ -12,7 +12,7 @@
         <div class="dev-box" @mouseover="setCurrentIndex(key)">
           <div class="dev-element overflow-hidden">
             <img
-              :src="'src/assets/' + information.image"
+              :src="'public/assets/' + information.image"
               alt=""
               class="object-contain"
             />
@@ -23,7 +23,7 @@
         <div class="dev-box" @mouseover="setCurrentIndex(key)">
           <div class="dev-element overflow-hidden">
             <img
-              :src="'src/assets/' + information.image"
+              :src="'public/assets/' + information.image"
               alt=""
               class="object-contain"
             />
