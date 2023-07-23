@@ -36,7 +36,7 @@
               class="w-full min-w-[20rem] h-48 overflow-hidden flex items-center"
             >
               <img
-                :src="'public/assets/' + information.smImage"
+                :src="'/public/assets/' + information.smImage"
                 alt=""
                 class="w-full object-cover grayscale"
               />
