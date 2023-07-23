@@ -2,7 +2,7 @@
   <header
     class="fixed z-50 w-full py-1 bg-white/50 backdrop-blur-lg overflow-hidden inset-x-0 min-w-[20rem]"
   >
-    <div
+    <!-- <div
       class="sm:hidden w-full max-w-[20rem] bg-rose-600 text-center text-white font-bold"
     >
       xs / 320px / 20rem
@@ -21,7 +21,7 @@
       class="hidden lg:inline-block w-full max-w-screen-lg bg-rose-600 text-center text-white font-bold"
     >
       lg / 1024px / 64rem
-    </div>
+    </div> -->
     <!-- <div
       class="hidden xl:inline-block 2xl:hidden w-full max-w-screen-xl bg-rose-500"
     >
@@ -42,7 +42,7 @@
           <h1
             @click="routerTo('home', router)"
             :class="isOpenedMobileMenu ? 'opacity-0' : 'opacity-100 '"
-            class="font-bold text-lg uppercase transition-opacity duration-300"
+            class="font-bold text-lg uppercase transition-opacity duration-300 cursor-pointer"
           >
             marvel fitness
           </h1>
