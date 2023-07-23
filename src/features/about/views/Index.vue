@@ -125,26 +125,26 @@
           silent even under intense workloads.
         </p>
       </div>
-      <div class="space-y-4 px-4 mt-20">
-        <div class="py-4 bg-gray-50">
+      <div class="space-y-4 mt-20">
+        <div class="">
           <img
             src="@assets/image9.jpg"
             alt=""
-            class="mx-auto w-96 object-cover"
+            class="p-4 mx-auto w-96 object-cover bg-gray-50"
           />
         </div>
-        <div class="py-4 bg-gray-50">
+        <div class="">
           <img
             src="@assets/image8.jpg"
             alt=""
-            class="mx-auto w-96 object-cover"
+            class="p-4 mx-auto w-96 object-cover bg-gray-50"
           />
         </div>
-        <div class="py-4 bg-gray-50">
+        <div class="">
           <img
             src="@assets/image7.jpg"
             alt=""
-            class="mx-auto w-96 object-cover"
+            class="p-4 mx-auto w-96 object-cover bg-gray-50"
           />
         </div>
       </div>
