@@ -11,14 +11,22 @@
       <template v-for="(information, key) in informations">
         <div class="dev-box" @mouseover="setCurrentIndex(key)">
           <div class="dev-element overflow-hidden">
-            <img :src="information.image" alt="" class="object-contain" />
+            <img
+              :src="'src/assets/' + information.image"
+              alt=""
+              class="object-contain"
+            />
           </div>
         </div>
       </template>
       <template v-for="(information, key) in informations">
         <div class="dev-box" @mouseover="setCurrentIndex(key)">
           <div class="dev-element overflow-hidden">
-            <img :src="information.image" alt="" class="object-contain" />
+            <img
+              :src="'src/assets/' + information.image"
+              alt=""
+              class="object-contain"
+            />
           </div>
         </div>
       </template>
