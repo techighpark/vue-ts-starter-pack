@@ -11,14 +11,22 @@
       <template v-for="(information, key) in informations">
         <div class="dev-box" @mouseover="setCurrentIndex(key)">
           <div class="dev-element overflow-hidden">
-            <img :src="information.image" alt="" class="object-contain" />
+            <img
+              :src="getImageUrl(information.image)"
+              alt=""
+              class="object-contain"
+            />
           </div>
         </div>
       </template>
       <template v-for="(information, key) in informations">
         <div class="dev-box" @mouseover="setCurrentIndex(key)">
           <div class="dev-element overflow-hidden">
-            <img :src="information.image" alt="" class="object-contain" />
+            <img
+              :src="getImageUrl(information.image)"
+              alt=""
+              class="object-contain"
+            />
           </div>
         </div>
       </template>
@@ -29,6 +37,10 @@
 <script setup lang="ts">
 import type { InformationType } from "@features/about2/views/Index.vue";
 import { Ref, ref } from "vue";
+
+function getImageUrl(name: string) {
+  return new URL(`/public/assets/${name}`, import.meta.url).href;
+}
 
 type SliderProps = {
   informations: InformationType;

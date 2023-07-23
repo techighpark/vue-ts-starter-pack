@@ -36,7 +36,7 @@
               class="w-full min-w-[20rem] h-48 overflow-hidden flex items-center"
             >
               <img
-                :src="information.smImage"
+                :src="getImageUrl(information.smImage)"
                 alt=""
                 class="w-full object-cover grayscale"
               />
@@ -64,6 +64,10 @@ const currentInformation = computed(
   () => informations.value[slider.value?.currentIndex ?? "1"]
 );
 
+function getImageUrl(name: string) {
+  return new URL(`/public/assets/${name}`, import.meta.url).href;
+}
+
 export interface InformationItem {
   name: string;
   center: string;
@@ -78,50 +82,50 @@ const informations: Ref<InformationType> = ref({
     name: "정다솔",
     center: "장전",
     data: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium obcaecati expedita perspiciatis consectetur nam minus ea, commodi rerum quam pariatur, necessitatibus, numquam tenetur voluptate voluptatum optio distinctio cum possimus incidunt!",
-    image: "/public/assets/trainer1.png",
-    smImage: "/public/assets/land1.jpg",
+    image: "trainer1.png",
+    smImage: "land1.jpg",
   },
   "2": {
     name: "성동하",
     center: "장전",
     data: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam? Harum quos libero sit. Voluptate enim, voluptatem architecto fuga officiis magni atque ipsa, eos totam maiores est odio natus praesentium!",
-    image: "/public/assets/trainer2.png",
-    smImage: "/public/assets/land2.jpg",
+    image: "trainer2.png",
+    smImage: "land2.jpg",
   },
   "3": {
     name: "안나단",
     center: "해운대",
     data: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium obcaecati expedita perspiciatis consectetur nam minus ea, commodi rerum quam pariatur, necessitatibus, numquam tenetur voluptate voluptatum optio distinctio cum possimus incidunt!",
-    image: "/public/assets/trainer3.png",
-    smImage: "/public/assets/land3.jpg",
+    image: "trainer3.png",
+    smImage: "land3.jpg",
   },
   "4": {
     name: "이상환",
     center: "서면",
     data: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reiciendis minima soluta beatae dignissimos dolor esse ex nobis blanditiis maiores cupiditate porro minus accusamus impedit incidunt placeat, quidem unde suscipit",
-    image: "/public/assets/trainer4.png",
-    smImage: "/public/assets/land4.jpg",
+    image: "trainer4.png",
+    smImage: "land4.jpg",
   },
   "5": {
     name: "장원두",
     center: "장전",
     data: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium obcaecati expedita perspiciatis consectetur nam minus ea, commodi rerum quam pariatur, necessitatibus, numquam tenetur voluptate voluptatum optio distinctio cum possimus incidunt!",
-    image: "/public/assets/trainer5.png",
-    smImage: "/public/assets/land5.jpg",
+    image: "trainer5.png",
+    smImage: "land5.jpg",
   },
   "6": {
     name: "정다솔",
     center: "서면",
     data: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam? Harum quos libero sit. Voluptate enim, voluptatem architecto fuga officiis magni atque ipsa, eos totam maiores est odio natus praesentium!",
-    image: "/public/assets/trainer6.png",
-    smImage: "/public/assets/land6.jpg",
+    image: "trainer6.png",
+    smImage: "land6.jpg",
   },
   "7": {
     name: "정다솔",
     center: "해운대",
     data: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam? Harum quos libero sit. Voluptate enim, voluptatem architecto fuga officiis magni atque ipsa, eos totam maiores est odio natus praesentium!",
-    image: "/public/assets/trainer7.png",
-    smImage: "/public/assets/land7.jpg",
+    image: "trainer7.png",
+    smImage: "land7.jpg",
   },
 });
 </script>
