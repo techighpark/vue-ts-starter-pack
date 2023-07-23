@@ -41,37 +41,37 @@ const informations: Ref<InformationType> = ref({
   "1": {
     center: "장전",
     data: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium obcaecati expedita perspiciatis consectetur nam minus ea, commodi rerum quam pariatur, necessitatibus, numquam tenetur voluptate voluptatum optio distinctio cum possimus incidunt!",
-    image: "src/assets/trainer1.png",
+    image: "/src/assets/trainer1.png",
   },
   "2": {
     center: "장전",
     data: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam? Harum quos libero sit. Voluptate enim, voluptatem architecto fuga officiis magni atque ipsa, eos totam maiores est odio natus praesentium!",
-    image: "src/assets/trainer2.png",
+    image: "/src/assets/trainer2.png",
   },
   "3": {
     center: "해운대",
     data: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium obcaecati expedita perspiciatis consectetur nam minus ea, commodi rerum quam pariatur, necessitatibus, numquam tenetur voluptate voluptatum optio distinctio cum possimus incidunt!",
-    image: "src/assets/trainer3.png",
+    image: "/src/assets/trainer3.png",
   },
   "4": {
     center: "서면",
     data: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reiciendis minima soluta beatae dignissimos dolor esse ex nobis blanditiis maiores cupiditate porro minus accusamus impedit incidunt placeat, quidem unde suscipit",
-    image: "src/assets/trainer4.png",
+    image: "/src/assets/trainer4.png",
   },
   "5": {
     center: "장전",
     data: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium obcaecati expedita perspiciatis consectetur nam minus ea, commodi rerum quam pariatur, necessitatibus, numquam tenetur voluptate voluptatum optio distinctio cum possimus incidunt!",
-    image: "src/assets/trainer5.png",
+    image: "/src/assets/trainer5.png",
   },
   "6": {
     center: "서면",
     data: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam? Harum quos libero sit. Voluptate enim, voluptatem architecto fuga officiis magni atque ipsa, eos totam maiores est odio natus praesentium!",
-    image: "src/assets/trainer6.png",
+    image: "/src/assets/trainer6.png",
   },
   "7": {
     center: "해운대",
     data: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam? Harum quos libero sit. Voluptate enim, voluptatem architecto fuga officiis magni atque ipsa, eos totam maiores est odio natus praesentium!",
-    image: "src/assets/trainer7.png",
+    image: "/src/assets/trainer7.png",
   },
 });
 </script>
