@@ -36,7 +36,7 @@
               class="w-full min-w-[20rem] h-48 overflow-hidden flex items-center"
             >
               <img
-                :src="'src/assets/' + information.smImage"
+                :src="getImageUrl(information.smImage)"
                 alt=""
                 class="w-full object-cover grayscale"
               />
@@ -72,7 +72,9 @@ export interface InformationItem {
   smImage: string;
 }
 export type InformationType = Record<string, InformationItem>;
-
+function getImageUrl(filname: string) {
+  return new URL(`/src/assets/${filname}`, import.meta.url).href;
+}
 const informations: Ref<InformationType> = ref({
   "1": {
     name: "정다솔",
