@@ -34,8 +34,7 @@ type SliderProps = {
   informations: InformationType;
 };
 
-const props = defineProps<SliderProps>();
-console.log(props.informations);
+defineProps<SliderProps>();
 const currentIndex: Ref<keyof InformationType> = ref("1");
 defineExpose({ currentIndex });
 /*
@@ -73,7 +72,7 @@ function toggleSlideAnimation() {
 
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 20%;
+  grid-auto-columns: 17%;
 
   overscroll-behavior-inline: contain;
 }
@@ -86,7 +85,7 @@ function toggleSlideAnimation() {
   display: flex;
   justify-content: center;
 
-  animation: 3s linear infinite running devKeyframes;
+  animation: 15s linear infinite running devKeyframes;
 }
 
 .dev-element {
@@ -96,19 +95,20 @@ function toggleSlideAnimation() {
   position: absolute;
   top: 0px;
 
-  background-color: black;
   border-radius: 20px;
 
-  transition: transform 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
   transform-origin: bottom;
 
   filter: grayscale(1);
-  box-shadow: 19px 49px 73px -18px rgba(255, 255, 255, 0.38);
-  -webkit-box-shadow: 19px 49px 73px -18px rgba(255, 255, 255, 0.38);
-  -moz-box-shadow: 19px 49px 73px -18px rgba(255, 255, 255, 0.38);
+
+  box-shadow: 19px 28px 73px -18px rgba(255, 255, 255, 0.38);
+  -webkit-box-shadow: 19px 28px 73px -18px rgba(255, 255, 255, 0.38);
+  -moz-box-shadow: 19px 28px 73px -18px rgba(255, 255, 255, 0.38);
 }
 
 .dev-element:hover {
+  width: 120px;
   transform: scale(1.1);
   filter: grayscale(0);
 }
