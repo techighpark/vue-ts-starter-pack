@@ -144,7 +144,7 @@ body input[id="mobile-nav-btn"]:checked ~ body {
 }
 
 .mobile-nav-item {
-  @apply relative text-3xl font-bold leading-relaxed  cursor-pointer;
+  @apply relative text-3xl font-bold leading-relaxed cursor-pointer flex items-center;
 }
 .mobile-nav-chevron {
   @apply absolute right-4 h-5 w-5 text-gray-500 opacity-0 transition-all;

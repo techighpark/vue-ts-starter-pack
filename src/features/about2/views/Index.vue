@@ -1,6 +1,7 @@
 <template>
   <div class="h-[calc(100vh-3rem)]">
-    <div class="hidden sm:block sm:bg-black">
+    <!-- Desktop -->
+    <div class="hidden sm:block bg-black">
       <InfiniteSlider ref="slider" :informations="informations" />
       <div class="mt-20 pb-20 mx-20">
         <transition name="fade">
@@ -20,7 +21,10 @@
         </transition>
       </div>
     </div>
+
+    <!-- Mobile -->
     <div class="sm:hidden">
+      <!-- center list -->
       <div class="text-xs font-bold text-gray-500">
         <ul class="h-10 flex justify-around items-center">
           <li class="w-full h-full flex justify-center items-center">서면</li>
@@ -29,18 +33,45 @@
           <li class="w-full h-full flex justify-center items-center">부산대</li>
         </ul>
       </div>
-      <div class="">
+
+      <!--traniner list -->
+      <div class="bg-black">
         <template v-for="information in informations">
           <div class="">
-            <div
-              class="w-full min-w-[20rem] h-48 overflow-hidden flex items-center"
-            >
-              <img
-                :src="getImageUrl(information.smImage)"
-                alt=""
-                class="w-full object-cover grayscale"
-              />
-            </div>
+            <Disclosure v-slot="{ open }" as="template">
+              <DisclosureButton as="button">
+                <div
+                  class="-mb-2 relative w-full min-w-[20rem] h-48 overflow-hidden"
+                >
+                  <img
+                    :src="getImageUrl(information.smImage)"
+                    alt=""
+                    class="w-full object-cover grayscale"
+                  />
+                  <div class="absolute right-2 inset-y-0 flex items-center">
+                    <ChevronRightIcon
+                      :class="open && 'rotate-90 transform'"
+                      class="w-6 h-6 transition font-bold rounded-full text-neutral-500 stroke-1"
+                    />
+                  </div>
+                </div>
+              </DisclosureButton>
+              <DisclosurePanel>
+                <div class="mx-6 mt-4 mb-8">
+                  <div>
+                    <span class="text-white font-bold text-2xl">
+                      {{ information.name }}
+                    </span>
+                    <span class="ml-4 text-neutral-500 font-bold text-base">
+                      {{ information.center }}
+                    </span>
+                  </div>
+                  <p class="mt-6 text-neutral-500 text-sm">
+                    {{ information.data }}
+                  </p>
+                </div>
+              </DisclosurePanel>
+            </Disclosure>
           </div>
         </template>
       </div>
@@ -53,6 +84,10 @@ import { computed, ref } from "vue";
 import type { Ref } from "vue";
 //vue
 import InfiniteSlider from "@components/slider/InfiniteSlider.vue";
+// lib
+import { getImageUrl } from "@libs/useImageUrl";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 
 const slider: Ref<InstanceType<typeof InfiniteSlider> | null> = ref(null!);
 /*
@@ -63,10 +98,6 @@ const slider: Ref<InstanceType<typeof InfiniteSlider> | null> = ref(null!);
 const currentInformation = computed(
   () => informations.value[slider.value?.currentIndex ?? "1"]
 );
-
-function getImageUrl(name: string) {
-  return new URL(`/public/assets/${name}`, import.meta.url).href;
-}
 
 export interface InformationItem {
   name: string;
@@ -134,7 +165,7 @@ const informations: Ref<InformationType> = ref({
 /* 트랜지션 CSS 정의 */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.5s ease;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
   opacity: 0;

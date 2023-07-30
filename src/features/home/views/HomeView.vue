@@ -86,19 +86,6 @@
         </div>
       </div>
     </div>
-    <div class="relative">
-      <img
-        src="/public/assets/image6.jpg"
-        alt=""
-        class="object-cover object-top w-full h-[31rem] md:h-[36rem] lg:h-[43rem]"
-      />
-      <!-- text -->
-      <div
-        class="absolute inset-x-0 top-1/4 flex flex-col items-center justify-center gap-y-6 transition-all duration-500"
-      >
-        <p class="flex text-white font-bold font-mono text-7xl italic"></p>
-      </div>
-    </div>
 
     <!-- ----------------- fourth area ----------------- -->
     <div
@@ -218,7 +205,7 @@ const routerTo: RouterTo = (value) => {
 
 <style scoped>
 h5 {
-  background: -webkit-linear-gradient(#e643ec, #e16bd9, #8205ff);
+  background: -webkit-linear-gradient(#ffae01, #f8ffce);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;

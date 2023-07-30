@@ -12,39 +12,51 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/about1",
-    name: "about1",
+    path: "/about",
+    name: "about",
     component: () =>
       import(
         /* webpackChunkName: "about1" */ "@features/about/views/Index.vue"
       ),
     meta: {
-      title: "About1 - ",
-      label: "About1",
+      title: "About - ",
+      label: "About",
     },
   },
   {
-    path: "/about2",
-    name: "about2",
+    path: "/traniner",
+    name: "traniner",
     component: () =>
       import(
         /* webpackChunkName: "about2" */ "@features/about2/views/Index.vue"
       ),
     meta: {
-      title: "About2 - ",
-      label: "About2",
+      title: "Traniner - ",
+      label: "Trainer",
     },
   },
   {
-    path: "/about3",
-    name: "about3",
+    path: "/center",
+    name: "center",
     component: () =>
       import(
         /* webpackChunkName: "abou3" */ "@features/about3/views/Index.vue"
       ),
     meta: {
-      title: "About3 - ",
-      label: "About3",
+      title: "Center - ",
+      label: "Center",
+    },
+  },
+  {
+    path: "/workout",
+    name: "workout",
+    component: () =>
+      import(
+        /* webpackChunkName: "abou3" */ "@features/about3/views/Index.vue"
+      ),
+    meta: {
+      title: "Workout - ",
+      label: "Workout",
     },
   },
 ];

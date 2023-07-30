@@ -35,18 +35,18 @@
 </template>
 
 <script setup lang="ts">
-import type { InformationType } from "@features/about2/views/Index.vue";
 import { Ref, ref } from "vue";
-
-function getImageUrl(name: string) {
-  return new URL(`/public/assets/${name}`, import.meta.url).href;
-}
+// type
+import type { InformationType } from "@features/about2/views/Index.vue";
+// lib
+import { getImageUrl } from "@libs/useImageUrl";
 
 type SliderProps = {
   informations: InformationType;
 };
 
 defineProps<SliderProps>();
+
 const currentIndex: Ref<keyof InformationType> = ref("1");
 defineExpose({ currentIndex });
 /*
